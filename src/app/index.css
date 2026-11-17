@@ -144,6 +144,25 @@ html, body {
   color: var(--void);
 }
 
+.btn-active {
+  border-color: var(--solar) !important;
+  color: var(--solar) !important;
+  background-color: var(--grid) !important;
+}
+
+.hud-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hud-controls .btn {
+  flex: 1;
+  text-align: center;
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
 /* Header bar */
 header {
   height: 52px;

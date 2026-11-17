@@ -1,4 +1,5 @@
 import type { Board } from '../../core/types';
+import { fx } from './fx';
 import { PALETTE } from './palette';
 import { drawBody } from './shapes';
 
@@ -198,15 +199,19 @@ function drawBackground(
 }
 
 /**
- * Renders the full game board, bodies, cursor, and hover ray previews.
+ * Renders the full game board, bodies, cursor, rays, and sparks.
  */
 export function renderBoard(
   ctx: CanvasRenderingContext2D,
   board: Board,
   cursor: CursorState,
   metrics: RenderMetrics,
+  isPlaybackActive: boolean = false,
 ): void {
-  const { boardSizePx, cellSize, offsetX, offsetY } = metrics;
+  // Apply screen nudge integer offset
+  const offsetX = metrics.offsetX + fx.nudgeX;
+  const offsetY = metrics.offsetY + fx.nudgeY;
+  const { boardSizePx, cellSize } = metrics;
   const { w, h, cells } = board;
 
   // 1. Board background plate with hard 2px offset shadow
@@ -240,8 +245,8 @@ export function renderBoard(
     ctx.stroke();
   }
 
-  // 3. Hover ray preview in --coolant (#3FD0C0)
-  if (cursor.active && cursor.x >= 0 && cursor.x < w && cursor.y >= 0 && cursor.y < h) {
+  // 3. Hover ray preview in --coolant (#3FD0C0) when not in playback
+  if (!isPlaybackActive && cursor.active && cursor.x >= 0 && cursor.x < w && cursor.y >= 0 && cursor.y < h) {
     const cursorIdx = cursor.y * w + cursor.x;
     const isCellEmpty = cells[cursorIdx] === null || cells[cursorIdx] === undefined;
 
@@ -311,8 +316,16 @@ export function renderBoard(
     }
   }
 
-  // 5. Render cursor reticle
-  if (cursor.active && cursor.x >= 0 && cursor.x < w && cursor.y >= 0 && cursor.y < h) {
+  // 5. Render stepped animation rays during playback
+  if (isPlaybackActive) {
+    fx.renderRays(ctx, offsetX, offsetY, cellSize);
+  }
+
+  // 6. Render active 2x2 sparks on top
+  fx.renderSparks(ctx);
+
+  // 7. Render cursor reticle if not in playback
+  if (!isPlaybackActive && cursor.active && cursor.x >= 0 && cursor.x < w && cursor.y >= 0 && cursor.y < h) {
     const rx = offsetX + cursor.x * cellSize;
     const ry = offsetY + cursor.y * cellSize;
 
@@ -367,9 +380,10 @@ export function drawFullFrame(
   height: number,
   board: Board,
   cursor: CursorState,
+  isPlaybackActive: boolean = false,
 ): RenderMetrics {
   drawBackground(ctx, width, height);
   const metrics = computeBoardMetrics(width, height, board.w, board.h);
-  renderBoard(ctx, board, cursor, metrics);
+  renderBoard(ctx, board, cursor, metrics, isPlaybackActive);
   return metrics;
 }
