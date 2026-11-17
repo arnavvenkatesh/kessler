@@ -1,0 +1,131 @@
+{
+  "board": {
+    "w": 8,
+    "h": 8,
+    "cells": [
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      }
+    ],
+    "spark": "CROSS",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 6,
+    "destroyedCount": 10,
+    "destroyedPercent": 83,
+    "topScorePlacementsCount": 4,
+    "medianScore": 260,
+    "decoyCount": 9,
+    "isCleanSweep": false
+  },
+  "attempts": 34,
+  "degraded": false,
+  "dayNumber": 335,
+  "dateStr": "2026-12-01"
+}

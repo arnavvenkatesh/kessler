@@ -1,0 +1,31 @@
+name: Daily Quality Audit
+
+on:
+  schedule:
+    # Run every Monday at 05:00 UTC (after content pipeline)
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit-quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run daily quality gate audit for next 60 days
+        id: audit
+        run: npm run audit:daily -- 60

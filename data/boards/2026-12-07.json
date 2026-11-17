@@ -1,0 +1,108 @@
+{
+  "board": {
+    "w": 7,
+    "h": 7,
+    "cells": [
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      }
+    ],
+    "spark": "CROSS",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 4,
+    "destroyedCount": 5,
+    "destroyedPercent": 55,
+    "topScorePlacementsCount": 2,
+    "medianScore": 120,
+    "decoyCount": 3,
+    "isCleanSweep": false
+  },
+  "attempts": 52,
+  "degraded": false,
+  "dayNumber": 341,
+  "dateStr": "2026-12-07"
+}

@@ -1,0 +1,170 @@
+{
+  "board": {
+    "w": 9,
+    "h": 9,
+    "cells": [
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNV"
+      }
+    ],
+    "spark": "CROSS",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 7,
+    "destroyedCount": 18,
+    "destroyedPercent": 78,
+    "topScorePlacementsCount": 1,
+    "medianScore": 1980,
+    "decoyCount": 5,
+    "isCleanSweep": false
+  },
+  "attempts": 2,
+  "degraded": false,
+  "dayNumber": 337,
+  "dateStr": "2026-12-03"
+}

@@ -1,0 +1,168 @@
+{
+  "board": {
+    "w": 9,
+    "h": 9,
+    "cells": [
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNV"
+      }
+    ],
+    "spark": "LANCE",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 7,
+    "destroyedCount": 16,
+    "destroyedPercent": 72,
+    "topScorePlacementsCount": 2,
+    "medianScore": 1520,
+    "decoyCount": 4,
+    "isCleanSweep": false
+  },
+  "attempts": 197,
+  "degraded": false,
+  "dayNumber": 324,
+  "dateStr": "2026-11-20"
+}

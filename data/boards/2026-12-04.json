@@ -1,0 +1,172 @@
+{
+  "board": {
+    "w": 9,
+    "h": 9,
+    "cells": [
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      }
+    ],
+    "spark": "LANCE",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 8,
+    "destroyedCount": 21,
+    "destroyedPercent": 87,
+    "topScorePlacementsCount": 3,
+    "medianScore": 2725,
+    "decoyCount": 10,
+    "isCleanSweep": false
+  },
+  "attempts": 26,
+  "degraded": false,
+  "dayNumber": 338,
+  "dateStr": "2026-12-04"
+}

@@ -1,0 +1,222 @@
+{
+  "board": {
+    "w": 11,
+    "h": 11,
+    "cells": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "LNH"
+      },
+      null,
+      {
+        "kind": "MRF"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "LNH"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "PLT"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "PLT"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      null
+    ],
+    "spark": "CROSS",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 11,
+    "destroyedCount": 27,
+    "destroyedPercent": 87,
+    "topScorePlacementsCount": 2,
+    "medianScore": 810,
+    "decoyCount": 7,
+    "isCleanSweep": false
+  },
+  "attempts": 55,
+  "degraded": false,
+  "dayNumber": 340,
+  "dateStr": "2026-12-06"
+}

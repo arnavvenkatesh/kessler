@@ -1,0 +1,141 @@
+{
+  "board": {
+    "w": 8,
+    "h": 8,
+    "cells": [
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "MRB"
+      },
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "SHD"
+      }
+    ],
+    "spark": "SKEW",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 7,
+    "destroyedCount": 15,
+    "destroyedPercent": 83,
+    "topScorePlacementsCount": 4,
+    "medianScore": 1620,
+    "decoyCount": 7,
+    "isCleanSweep": false
+  },
+  "attempts": 11,
+  "degraded": false,
+  "dayNumber": 350,
+  "dateStr": "2026-12-16"
+}

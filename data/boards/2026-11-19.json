@@ -1,0 +1,170 @@
+{
+  "board": {
+    "w": 9,
+    "h": 9,
+    "cells": [
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "LNV"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "LNV"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNH"
+      }
+    ],
+    "spark": "CROSS",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 7,
+    "destroyedCount": 16,
+    "destroyedPercent": 69,
+    "topScorePlacementsCount": 3,
+    "medianScore": 2790,
+    "decoyCount": 6,
+    "isCleanSweep": false
+  },
+  "attempts": 26,
+  "degraded": false,
+  "dayNumber": 323,
+  "dateStr": "2026-11-19"
+}

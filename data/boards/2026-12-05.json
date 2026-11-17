@@ -1,0 +1,197 @@
+{
+  "board": {
+    "w": 10,
+    "h": 10,
+    "cells": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      {
+        "kind": "MRB"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      null,
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "PLT"
+      },
+      null,
+      {
+        "kind": "CIN"
+      },
+      null,
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "LNH"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "PLT"
+      },
+      {
+        "kind": "MRB"
+      },
+      null,
+      {
+        "kind": "PLT"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "PLT"
+      },
+      null,
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "spark": "SKEW",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 12,
+    "destroyedCount": 27,
+    "destroyedPercent": 90,
+    "topScorePlacementsCount": 2,
+    "medianScore": 2210,
+    "decoyCount": 5,
+    "isCleanSweep": false
+  },
+  "attempts": 50,
+  "degraded": false,
+  "dayNumber": 339,
+  "dateStr": "2026-12-05"
+}
