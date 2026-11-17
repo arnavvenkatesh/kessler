@@ -21,7 +21,7 @@
     "check": "npm run lint && tsc --noEmit && npm run test && npm run build && npm run size"
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.65.1",
     "@size-limit/file": "^11.2.0",
     "@types/node": "^26.6.6",
