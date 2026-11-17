@@ -2,3 +2,7 @@ export * from './types';
 export * from './rng';
 export * from './score';
 export * from './sim';
+export * from './solver';
+export * from './config';
+export * from './calendar';
+export * from './generate';
