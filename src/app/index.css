@@ -194,6 +194,7 @@ main {
   padding: 16px;
   gap: 16px;
   overflow: hidden;
+  position: relative;
 }
 
 .viewport-container {
@@ -204,10 +205,17 @@ main {
   background-color: var(--void);
   border: 2px solid var(--grid);
   position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 0 var(--hull);
+}
+
+#stage-canvas {
+  display: block;
+  image-rendering: pixelated;
 }
 
 .hud-panel {
-  width: 280px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -217,6 +225,7 @@ main {
   background-color: var(--hull);
   border: 2px solid var(--grid);
   padding: 12px;
+  box-shadow: 2px 2px 0 var(--void);
 }
 
 .hud-stat-label {
@@ -227,30 +236,57 @@ main {
 }
 
 .hud-stat-value {
-  font-size: 24px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
   color: var(--solar);
-  margin-top: 4px;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
 }
 
-/* Technical canvas overlay lines */
-.crosshair {
-  position: absolute;
-  pointer-events: none;
-  border-color: var(--grid);
+.hud-instructions {
+  background-color: var(--hull);
+  border: 2px solid var(--grid);
+  padding: 12px;
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--dust);
+}
+
+.hud-instructions kbd {
+  background-color: var(--grid);
+  color: var(--chalk);
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border-radius: 0;
+  border: 1px solid var(--chalk);
 }
 
 /* Responsive layout: 16:9 vs portrait */
 @media (max-aspect-ratio: 1/1) {
   main {
     flex-direction: column;
+    padding: 8px;
+    gap: 8px;
   }
   .hud-panel {
     width: 100%;
     height: auto;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .hud-stat-box {
     flex: 1;
+    min-width: 100px;
+    padding: 8px;
+  }
+  .hud-stat-value {
+    font-size: 20px;
+  }
+  .hud-instructions {
+    display: none;
   }
 }

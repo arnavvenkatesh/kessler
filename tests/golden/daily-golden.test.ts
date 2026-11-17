@@ -4,38 +4,68 @@ import { civilFromDays, daysFromCivil, formatDateString } from '../../src/core/c
 import { hash32 } from '../../src/core/rng';
 
 describe('P2 400-Day Board Hash Golden Test & Quality Check', () => {
-  it('locks golden board hashes for 400 days and asserts < 2% degraded rate', () => {
-    const startDays = daysFromCivil(2026, 1, 1);
-    const hashes: string[] = [];
-    let degradedCount = 0;
+  const startDays = daysFromCivil(2026, 1, 1);
+  const allHashes: string[] = [];
+  let degradedCount = 0;
 
-    const sampleHashes: Record<number, string> = {};
-
-    for (let i = 0; i < 400; i++) {
+  it('generates days 1 to 100 and verifies sample checkpoints', () => {
+    for (let i = 0; i < 100; i++) {
       const [y, m, d] = civilFromDays(startDays + i);
       const dateStr = formatDateString(y, m, d);
       const res = generateDaily(dateStr);
       const bHash = hashBoard(res.board);
-      hashes.push(bHash);
+      allHashes.push(bHash);
+      if (res.degraded) {
+        degradedCount++;
+      }
+    }
+    expect(allHashes[0]).toBe('418adab7'); // Day 1
+    expect(allHashes[49]).toBe('dfc38715'); // Day 50
+    expect(allHashes[99]).toBe('795b2c3e'); // Day 100
+  }, 60000);
 
+  it('generates days 101 to 200 and verifies sample checkpoints', () => {
+    for (let i = 100; i < 200; i++) {
+      const [y, m, d] = civilFromDays(startDays + i);
+      const dateStr = formatDateString(y, m, d);
+      const res = generateDaily(dateStr);
+      const bHash = hashBoard(res.board);
+      allHashes.push(bHash);
+      if (res.degraded) {
+        degradedCount++;
+      }
+    }
+    expect(allHashes[199]).toBe('81a028bb'); // Day 200
+  }, 60000);
+
+  it('generates days 201 to 300 and verifies sample checkpoints', () => {
+    for (let i = 200; i < 300; i++) {
+      const [y, m, d] = civilFromDays(startDays + i);
+      const dateStr = formatDateString(y, m, d);
+      const res = generateDaily(dateStr);
+      const bHash = hashBoard(res.board);
+      allHashes.push(bHash);
+      if (res.degraded) {
+        degradedCount++;
+      }
+    }
+    expect(allHashes[299]).toBe('48879c4f'); // Day 300
+  }, 60000);
+
+  it('generates days 301 to 400, verifies aggregate hash and degraded rate', () => {
+    for (let i = 300; i < 400; i++) {
+      const [y, m, d] = civilFromDays(startDays + i);
+      const dateStr = formatDateString(y, m, d);
+      const res = generateDaily(dateStr);
+      const bHash = hashBoard(res.board);
+      allHashes.push(bHash);
       if (i < 365 && res.degraded) {
         degradedCount++;
       }
-
-      if (i === 0 || i === 49 || i === 99 || i === 199 || i === 299 || i === 399) {
-        sampleHashes[i + 1] = bHash;
-      }
     }
+    expect(allHashes[399]).toBe('18bf1ae7'); // Day 400
 
-    const aggregateHash = hash32(hashes.join(',')).toString(16).padStart(8, '0');
-
-    // Lock sample day hashes
-    expect(sampleHashes[1]).toBe('418adab7');
-    expect(sampleHashes[50]).toBe('dfc38715');
-    expect(sampleHashes[100]).toBe('795b2c3e');
-    expect(sampleHashes[200]).toBe('81a028bb');
-    expect(sampleHashes[300]).toBe('48879c4f');
-    expect(sampleHashes[400]).toBe('18bf1ae7');
+    const aggregateHash = hash32(allHashes.join(',')).toString(16).padStart(8, '0');
 
     // Lock aggregate 400-day hash
     expect(aggregateHash).toBe('0b8c2147');
@@ -44,5 +74,5 @@ describe('P2 400-Day Board Hash Golden Test & Quality Check', () => {
     const degradedPercent = (degradedCount * 100) / 365;
     expect(degradedCount).toBe(1);
     expect(degradedPercent).toBeLessThan(2.0);
-  }, 120000);
+  }, 60000);
 });
