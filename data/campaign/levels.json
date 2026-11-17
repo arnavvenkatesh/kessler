@@ -1,0 +1,8442 @@
+[
+  {
+    "id": 1,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Perigee Point",
+    "briefing": "Sector 1: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1326,
+    "medalThresholds": {
+      "bronze": 1224,
+      "silver": 1734,
+      "gold": 2040
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2040
+  },
+  {
+    "id": 2,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Apogee Skim",
+    "briefing": "Sector 2: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1209,
+    "medalThresholds": {
+      "bronze": 1116,
+      "silver": 1581,
+      "gold": 1860
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1860
+  },
+  {
+    "id": 3,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Thermal Shield",
+    "briefing": "Sector 3: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1092,
+    "medalThresholds": {
+      "bronze": 1008,
+      "silver": 1428,
+      "gold": 1680
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1680
+  },
+  {
+    "id": 4,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Debris Corridor",
+    "briefing": "Sector 4: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1329,
+    "medalThresholds": {
+      "bronze": 1227,
+      "silver": 1738,
+      "gold": 2045
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2045
+  },
+  {
+    "id": 5,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Echo Vector",
+    "briefing": "Sector 5: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1079,
+    "medalThresholds": {
+      "bronze": 996,
+      "silver": 1411,
+      "gold": 1660
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1660
+  },
+  {
+    "id": 6,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Solar Flare",
+    "briefing": "Sector 6: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1186,
+    "medalThresholds": {
+      "bronze": 1095,
+      "silver": 1551,
+      "gold": 1825
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1825
+  },
+  {
+    "id": 7,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Booster Graveyard",
+    "briefing": "Sector 7: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1248,
+    "medalThresholds": {
+      "bronze": 1152,
+      "silver": 1632,
+      "gold": 1920
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1920
+  },
+  {
+    "id": 8,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Cold Horizon",
+    "briefing": "Sector 8: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 939,
+    "medalThresholds": {
+      "bronze": 867,
+      "silver": 1228,
+      "gold": 1445
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1445
+  },
+  {
+    "id": 9,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Zenith Burn",
+    "briefing": "Sector 9: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1121,
+    "medalThresholds": {
+      "bronze": 1035,
+      "silver": 1466,
+      "gold": 1725
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1725
+  },
+  {
+    "id": 10,
+    "orbit": 1,
+    "orbitName": "Low Earth Orbit",
+    "name": "Orbital Insertion",
+    "briefing": "Sector 10: Clear space junk in Low Earth Orbit. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 793,
+    "medalThresholds": {
+      "bronze": 732,
+      "silver": 1037,
+      "gold": 1220
+    },
+    "board": {
+      "w": 7,
+      "h": 7,
+      "cells": [
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1220
+  },
+  {
+    "id": 11,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Inclination Shift",
+    "briefing": "Sector 11: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1670,
+    "medalThresholds": {
+      "bronze": 1542,
+      "silver": 2184,
+      "gold": 2570
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "MRB"
+        }
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2570
+  },
+  {
+    "id": 12,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "High Arctic",
+    "briefing": "Sector 12: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1826,
+    "medalThresholds": {
+      "bronze": 1686,
+      "silver": 2388,
+      "gold": 2810
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2810
+  },
+  {
+    "id": 13,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Reflection Arch",
+    "briefing": "Sector 13: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1641,
+    "medalThresholds": {
+      "bronze": 1515,
+      "silver": 2146,
+      "gold": 2525
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2525
+  },
+  {
+    "id": 14,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Prism Line",
+    "briefing": "Sector 14: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1586,
+    "medalThresholds": {
+      "bronze": 1464,
+      "silver": 2074,
+      "gold": 2440
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2440
+  },
+  {
+    "id": 15,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Crystal Drift",
+    "briefing": "Sector 15: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1397,
+    "medalThresholds": {
+      "bronze": 1290,
+      "silver": 1827,
+      "gold": 2150
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2150
+  },
+  {
+    "id": 16,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Biconic Node",
+    "briefing": "Sector 16: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1657,
+    "medalThresholds": {
+      "bronze": 1530,
+      "silver": 2167,
+      "gold": 2550
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        }
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2550
+  },
+  {
+    "id": 17,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Skew Intercept",
+    "briefing": "Sector 17: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1732,
+    "medalThresholds": {
+      "bronze": 1599,
+      "silver": 2265,
+      "gold": 2665
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2665
+  },
+  {
+    "id": 18,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Mirror Matrix",
+    "briefing": "Sector 18: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1378,
+    "medalThresholds": {
+      "bronze": 1272,
+      "silver": 1802,
+      "gold": 2120
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2120
+  },
+  {
+    "id": 19,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Refraction Trench",
+    "briefing": "Sector 19: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1439,
+    "medalThresholds": {
+      "bronze": 1329,
+      "silver": 1882,
+      "gold": 2215
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2215
+  },
+  {
+    "id": 20,
+    "orbit": 2,
+    "orbitName": "Molniya Ellipse",
+    "name": "Polar Descent",
+    "briefing": "Sector 20: Clear space junk in Molniya Ellipse. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1352,
+    "medalThresholds": {
+      "bronze": 1248,
+      "silver": 1768,
+      "gold": 2080
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2080
+  },
+  {
+    "id": 21,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Station Keep",
+    "briefing": "Sector 21: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 5,
+    "medalThresholds": {
+      "bronze": 3024,
+      "silver": 4284,
+      "gold": 5040
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 5040
+  },
+  {
+    "id": 22,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Beacon Net",
+    "briefing": "Sector 22: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 4,
+    "medalThresholds": {
+      "bronze": 2535,
+      "silver": 3591,
+      "gold": 4225
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "SHD"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 4225
+  },
+  {
+    "id": 23,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Equatorial Arc",
+    "briefing": "Sector 23: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 6,
+    "medalThresholds": {
+      "bronze": 2700,
+      "silver": 3825,
+      "gold": 4500
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 4500
+  },
+  {
+    "id": 24,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Relay Station",
+    "briefing": "Sector 24: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 2,
+    "medalThresholds": {
+      "bronze": 2259,
+      "silver": 3200,
+      "gold": 3765
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3765
+  },
+  {
+    "id": 25,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Signal Converge",
+    "briefing": "Sector 25: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 3,
+    "medalThresholds": {
+      "bronze": 1872,
+      "silver": 2652,
+      "gold": 3120
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3120
+  },
+  {
+    "id": 26,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Geo-Sync Hub",
+    "briefing": "Sector 26: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 9,
+    "medalThresholds": {
+      "bronze": 2616,
+      "silver": 3706,
+      "gold": 4360
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 4360
+  },
+  {
+    "id": 27,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Resonance Pulse",
+    "briefing": "Sector 27: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 7,
+    "medalThresholds": {
+      "bronze": 3252,
+      "silver": 4607,
+      "gold": 5420
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 5420
+  },
+  {
+    "id": 28,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Array Cluster",
+    "briefing": "Sector 28: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 3,
+    "medalThresholds": {
+      "bronze": 2157,
+      "silver": 3055,
+      "gold": 3595
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3595
+  },
+  {
+    "id": 29,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Lighthouse Sector",
+    "briefing": "Sector 29: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 5,
+    "medalThresholds": {
+      "bronze": 3612,
+      "silver": 5117,
+      "gold": 6020
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6020
+  },
+  {
+    "id": 30,
+    "orbit": 3,
+    "orbitName": "Geostationary Ring",
+    "name": "Null Signal",
+    "briefing": "Sector 30: Clear space junk in Geostationary Ring. Single spark ignition. Target optimum cascade.",
+    "goalType": "beacons",
+    "targetValue": 5,
+    "medalThresholds": {
+      "bronze": 2739,
+      "silver": 3880,
+      "gold": 4565
+    },
+    "board": {
+      "w": 8,
+      "h": 8,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "CIN"
+        },
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 4565
+  },
+  {
+    "id": 31,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Piercing Vector",
+    "briefing": "Sector 31: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1950,
+    "medalThresholds": {
+      "bronze": 1800,
+      "silver": 2550,
+      "gold": 3000
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3000
+  },
+  {
+    "id": 32,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Ice Needle",
+    "briefing": "Sector 32: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1992,
+    "medalThresholds": {
+      "bronze": 1839,
+      "silver": 2605,
+      "gold": 3065
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3065
+  },
+  {
+    "id": 33,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Long Axis",
+    "briefing": "Sector 33: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2203,
+    "medalThresholds": {
+      "bronze": 2034,
+      "silver": 2881,
+      "gold": 3390
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3390
+  },
+  {
+    "id": 34,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Meridian Strike",
+    "briefing": "Sector 34: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1384,
+    "medalThresholds": {
+      "bronze": 1278,
+      "silver": 1810,
+      "gold": 2130
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 2130
+  },
+  {
+    "id": 35,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Borealis Line",
+    "briefing": "Sector 35: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2106,
+    "medalThresholds": {
+      "bronze": 1944,
+      "silver": 2754,
+      "gold": 3240
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3240
+  },
+  {
+    "id": 36,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Trans-Polar",
+    "briefing": "Sector 36: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2249,
+    "medalThresholds": {
+      "bronze": 2076,
+      "silver": 2941,
+      "gold": 3460
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SHD"
+        }
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3460
+  },
+  {
+    "id": 37,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Linear Cascade",
+    "briefing": "Sector 37: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2112,
+    "medalThresholds": {
+      "bronze": 1950,
+      "silver": 2762,
+      "gold": 3250
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3250
+  },
+  {
+    "id": 38,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Frost Piercer",
+    "briefing": "Sector 38: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2557,
+    "medalThresholds": {
+      "bronze": 2361,
+      "silver": 3344,
+      "gold": 3935
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        }
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3935
+  },
+  {
+    "id": 39,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "High Penetration",
+    "briefing": "Sector 39: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2106,
+    "medalThresholds": {
+      "bronze": 1944,
+      "silver": 2754,
+      "gold": 3240
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3240
+  },
+  {
+    "id": 40,
+    "orbit": 4,
+    "orbitName": "Polar Patrol",
+    "name": "Sub-Orbital Dip",
+    "briefing": "Sector 40: Clear space junk in Polar Patrol. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1118,
+    "medalThresholds": {
+      "bronze": 1032,
+      "silver": 1462,
+      "gold": 1720
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1720
+  },
+  {
+    "id": 41,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Double Hull",
+    "briefing": "Sector 41: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4257,
+    "medalThresholds": {
+      "bronze": 3930,
+      "silver": 5567,
+      "gold": 6550
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6550
+  },
+  {
+    "id": 42,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Hardened Shell",
+    "briefing": "Sector 42: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 5349,
+    "medalThresholds": {
+      "bronze": 4938,
+      "silver": 6995,
+      "gold": 8230
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 8230
+  },
+  {
+    "id": 43,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Delayed Pulse",
+    "briefing": "Sector 43: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 5141,
+    "medalThresholds": {
+      "bronze": 4746,
+      "silver": 6723,
+      "gold": 7910
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 7910
+  },
+  {
+    "id": 44,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Armor Plate",
+    "briefing": "Sector 44: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 5193,
+    "medalThresholds": {
+      "bronze": 4794,
+      "silver": 6791,
+      "gold": 7990
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 7990
+  },
+  {
+    "id": 45,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Slow Fuse",
+    "briefing": "Sector 45: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4468,
+    "medalThresholds": {
+      "bronze": 4125,
+      "silver": 5843,
+      "gold": 6875
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "SNG"
+        },
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6875
+  },
+  {
+    "id": 46,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Slag Field",
+    "briefing": "Sector 46: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 5235,
+    "medalThresholds": {
+      "bronze": 4833,
+      "silver": 6846,
+      "gold": 8055
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 8055
+  },
+  {
+    "id": 47,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Timed Detonation",
+    "briefing": "Sector 47: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4868,
+    "medalThresholds": {
+      "bronze": 4494,
+      "silver": 6366,
+      "gold": 7490
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 7490
+  },
+  {
+    "id": 48,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Heavy Bastion",
+    "briefing": "Sector 48: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4202,
+    "medalThresholds": {
+      "bronze": 3879,
+      "silver": 5495,
+      "gold": 6465
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6465
+  },
+  {
+    "id": 49,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Chamber 44",
+    "briefing": "Sector 49: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 5547,
+    "medalThresholds": {
+      "bronze": 5121,
+      "silver": 7254,
+      "gold": 8535
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "MRF"
+        },
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "MRB"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 8535
+  },
+  {
+    "id": 50,
+    "orbit": 5,
+    "orbitName": "Graveyard Shell",
+    "name": "Terminal Countdown",
+    "briefing": "Sector 50: Clear space junk in Graveyard Shell. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4728,
+    "medalThresholds": {
+      "bronze": 4365,
+      "silver": 6183,
+      "gold": 7275
+    },
+    "board": {
+      "w": 9,
+      "h": 9,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "MRB"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "MRB"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "MRF"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 7275
+  },
+  {
+    "id": 51,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Singularity Well",
+    "briefing": "Sector 51: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 3906,
+    "medalThresholds": {
+      "bronze": 3606,
+      "silver": 5108,
+      "gold": 6010
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6010
+  },
+  {
+    "id": 52,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Wormhole Alpha",
+    "briefing": "Sector 52: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2483,
+    "medalThresholds": {
+      "bronze": 2292,
+      "silver": 3247,
+      "gold": 3820
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3820
+  },
+  {
+    "id": 53,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Solar Drift",
+    "briefing": "Sector 53: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 3133,
+    "medalThresholds": {
+      "bronze": 2892,
+      "silver": 4097,
+      "gold": 4820
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "mutator": "SOLAR_WIND",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 4820
+  },
+  {
+    "id": 54,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Dead Sector",
+    "briefing": "Sector 54: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4345,
+    "medalThresholds": {
+      "bronze": 4011,
+      "silver": 5682,
+      "gold": 6685
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null
+      ],
+      "spark": "CROSS",
+      "mutator": "DEAD_ZONE:3,3",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6685
+  },
+  {
+    "id": 55,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Twin Ignition",
+    "briefing": "Sector 55: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 3396,
+    "medalThresholds": {
+      "bronze": 3135,
+      "silver": 4441,
+      "gold": 5225
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        }
+      ],
+      "spark": "SKEW",
+      "mutator": "TWIN_SPARK",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 5225
+  },
+  {
+    "id": 56,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Fold Space",
+    "briefing": "Sector 56: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2015,
+    "medalThresholds": {
+      "bronze": 1860,
+      "silver": 2635,
+      "gold": 3100
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        null,
+        null
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 3100
+  },
+  {
+    "id": 57,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Lagrange L1",
+    "briefing": "Sector 57: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4173,
+    "medalThresholds": {
+      "bronze": 3852,
+      "silver": 5457,
+      "gold": 6420
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        }
+      ],
+      "spark": "CROSS",
+      "mutator": "SOLAR_WIND",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6420
+  },
+  {
+    "id": 58,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Quantum Bridge",
+    "briefing": "Sector 58: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 2652,
+    "medalThresholds": {
+      "bronze": 2448,
+      "silver": 3468,
+      "gold": 4080
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null
+      ],
+      "spark": "SKEW",
+      "mutator": "DEAD_ZONE:3,3",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 4080
+  },
+  {
+    "id": 59,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Event Horizon",
+    "briefing": "Sector 59: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 1014,
+    "medalThresholds": {
+      "bronze": 936,
+      "silver": 1326,
+      "gold": 1560
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "SHD"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "PLT"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "PLT"
+        },
+        {
+          "kind": "WRM",
+          "pair": 1
+        },
+        {
+          "kind": "SHD"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        }
+      ],
+      "spark": "LANCE",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 1560
+  },
+  {
+    "id": 60,
+    "orbit": 6,
+    "orbitName": "Lagrange Junction",
+    "name": "Kessler Cascade",
+    "briefing": "Sector 60: Clear space junk in Lagrange Junction. Single spark ignition. Target optimum cascade.",
+    "goalType": "par",
+    "targetValue": 4420,
+    "medalThresholds": {
+      "bronze": 4080,
+      "silver": 5780,
+      "gold": 6800
+    },
+    "board": {
+      "w": 10,
+      "h": 10,
+      "cells": [
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "FUS"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "SHD"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        {
+          "kind": "BCN"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        null,
+        null,
+        {
+          "kind": "BCN"
+        },
+        null,
+        {
+          "kind": "FUS"
+        },
+        {
+          "kind": "BCN"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        null,
+        {
+          "kind": "LNV"
+        },
+        null,
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "kind": "LNH"
+        },
+        {
+          "kind": "SNG"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        {
+          "kind": "CIN"
+        },
+        null,
+        null,
+        {
+          "kind": "SNG"
+        },
+        null,
+        null
+      ],
+      "spark": "CROSS",
+      "mutator": "TWIN_SPARK",
+      "rulesetVersion": 1
+    },
+    "optimumScore": 6800
+  }
+]

@@ -359,6 +359,185 @@ export function drawPlated(
 }
 
 /**
+ * Renders a Fuse body: rock with a burning stub and 3 countdown pips.
+ */
+export function drawFuse(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  cellSize: number,
+  variantIdx = 0,
+  pipsRemaining = 3,
+): void {
+  const poly = CINDER_VARIANTS[variantIdx % CINDER_VARIANTS.length]!;
+  drawPolygon(ctx, poly, x, y, cellSize, PALETTE.hull, PALETTE.chalk);
+
+  const scale = cellSize / 24;
+  const cx = Math.round(x + 12 * scale);
+
+  // Burning stub on top of rock
+  ctx.strokeStyle = PALETTE.chalk;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(cx, Math.round(y + 4 * scale));
+  ctx.lineTo(cx, Math.round(y + 1 * scale));
+  ctx.stroke();
+
+  // Burning flame tip (square 4x4 px)
+  ctx.fillStyle = PALETTE.ember;
+  ctx.fillRect(cx - 2, Math.round(y + 1 * scale) - 2, 4, 4);
+
+  // 3 countdown pips across the center
+  const pipY = Math.round(y + 13 * scale);
+  const pipSpacing = Math.round(4 * scale);
+  const pips = [cx - pipSpacing, cx, cx + pipSpacing];
+
+  for (let i = 0; i < 3; i++) {
+    const px = pips[i]!;
+    ctx.fillStyle = i < pipsRemaining ? PALETTE.solar : PALETTE.dust;
+    ctx.fillRect(px - 1, pipY - 1, 3, 3);
+  }
+}
+
+/**
+ * Renders a Wormhole body: concentric rings, paired ones share a notch glyph.
+ */
+export function drawWormhole(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  cellSize: number,
+  pair = 1,
+): void {
+  const scale = cellSize / 24;
+  const cx = Math.round(x + 12 * scale);
+  const cy = Math.round(y + 12 * scale);
+  const rOuter = Math.round(8 * scale);
+  const rInner = Math.round(4 * scale);
+
+  // Hard offset shadow
+  ctx.beginPath();
+  ctx.arc(cx + 2, cy + 2, rOuter, 0, Math.PI * 2);
+  ctx.fillStyle = PALETTE.void;
+  ctx.fill();
+
+  // Dark background fill
+  ctx.beginPath();
+  ctx.arc(cx, cy, rOuter, 0, Math.PI * 2);
+  ctx.fillStyle = PALETTE.hull;
+  ctx.fill();
+
+  // Outer ring (coolant)
+  ctx.strokeStyle = PALETTE.coolant;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Inner ring (chalk)
+  ctx.beginPath();
+  ctx.arc(cx, cy, rInner, 0, Math.PI * 2);
+  ctx.strokeStyle = PALETTE.chalk;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Center void pip
+  ctx.fillStyle = PALETTE.void;
+  ctx.fillRect(cx - 1, cy - 1, 3, 3);
+
+  // Shared notch glyph: notch angle determined by pair id (0 to 7)
+  const notchAngles = [
+    0,
+    Math.PI / 4,
+    Math.PI / 2,
+    (3 * Math.PI) / 4,
+    Math.PI,
+    (5 * Math.PI) / 4,
+    (3 * Math.PI) / 2,
+    (7 * Math.PI) / 4,
+  ];
+  const angle = notchAngles[(pair - 1 + 8) % 8] ?? 0;
+  const nx1 = Math.round(cx + Math.cos(angle) * (rOuter - 2));
+  const ny1 = Math.round(cy + Math.sin(angle) * (rOuter - 2));
+  const nx2 = Math.round(cx + Math.cos(angle) * (rOuter + 3));
+  const ny2 = Math.round(cy + Math.sin(angle) * (rOuter + 3));
+
+  ctx.strokeStyle = PALETTE.solar;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(nx1, ny1);
+  ctx.lineTo(nx2, ny2);
+  ctx.stroke();
+}
+
+/**
+ * Authored campaign medal glyphs (Bronze, Silver, Gold).
+ */
+export function drawMedal(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  radius: number,
+  type: 'gold' | 'silver' | 'bronze' | 'none',
+): void {
+  if (type === 'none') {
+    // Hollow faint circle for unearned medal
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = PALETTE.grid;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    return;
+  }
+
+  // Shadow
+  ctx.beginPath();
+  ctx.arc(cx + 1, cy + 1, radius, 0, Math.PI * 2);
+  ctx.fillStyle = PALETTE.void;
+  ctx.fill();
+
+  let fillColor: string = PALETTE.rust;
+  let strokeColor: string = PALETTE.dust;
+  if (type === 'silver') {
+    fillColor = PALETTE.hull;
+    strokeColor = PALETTE.chalk;
+  } else if (type === 'gold') {
+    fillColor = PALETTE.solar;
+    strokeColor = PALETTE.chalk;
+  }
+
+  // Base disc
+  ctx.beginPath();
+  ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  ctx.fillStyle = fillColor;
+  ctx.fill();
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Inner geometric insignia
+  ctx.fillStyle = type === 'gold' ? PALETTE.void : PALETTE.chalk;
+  if (type === 'gold') {
+    // 4-point solar diamond pip
+    const d = radius * 0.5;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - d);
+    ctx.lineTo(cx + d, cy);
+    ctx.lineTo(cx, cy + d);
+    ctx.lineTo(cx - d, cy);
+    ctx.closePath();
+    ctx.fill();
+  } else if (type === 'silver') {
+    // Centered square pip
+    const s = radius * 0.4;
+    ctx.fillRect(cx - s, cy - s, s * 2, s * 2);
+  } else if (type === 'bronze') {
+    // Horizontal notch bar
+    const w = radius * 0.6;
+    const h = radius * 0.25;
+    ctx.fillRect(cx - w, cy - h, w * 2, h * 2);
+  }
+}
+
+/**
  * Master dispatcher for drawing any body kind.
  */
 export function drawBody(
@@ -369,6 +548,8 @@ export function drawBody(
   cellSize: number,
   gridX = 0,
   gridY = 0,
+  pair = 1,
+  cracked = false,
 ): void {
   const variant = getRockVariantIndex(gridX, gridY);
 
@@ -398,7 +579,13 @@ export function drawBody(
       drawLance(ctx, cellX, cellY, cellSize, 1);
       break;
     case 'PLT':
-      drawPlated(ctx, cellX, cellY, cellSize, variant, false);
+      drawPlated(ctx, cellX, cellY, cellSize, variant, cracked);
+      break;
+    case 'FUS':
+      drawFuse(ctx, cellX, cellY, cellSize, variant);
+      break;
+    case 'WRM':
+      drawWormhole(ctx, cellX, cellY, cellSize, pair);
       break;
     default:
       drawCinder(ctx, cellX, cellY, cellSize, variant);

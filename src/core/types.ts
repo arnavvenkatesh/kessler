@@ -29,6 +29,11 @@ export interface Placement {
   x: number;
   y: number;
   rot?: 0 | 1;
+  twin?: {
+    x: number;
+    y: number;
+    rot?: 0 | 1;
+  };
 }
 
 export type SimEvent =

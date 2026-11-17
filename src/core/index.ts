@@ -6,3 +6,4 @@ export * from './solver';
 export * from './config';
 export * from './calendar';
 export * from './generate';
+export * from './hints';

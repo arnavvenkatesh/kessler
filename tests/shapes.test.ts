@@ -83,4 +83,44 @@ describe('Shapes and Render Metrics Tests', () => {
     // East ray from (2, 2) hits (4, 2)
     expect(preview.hitTargets).toContainEqual([4, 2]);
   });
+
+  it('renders Fuse, Wormhole, Plated, and Medals on canvas without error', async () => {
+    // Canvas2D mock
+    const ops: string[] = [];
+    const mockCtx = {
+      beginPath: () => ops.push('beginPath'),
+      closePath: () => ops.push('closePath'),
+      moveTo: () => ops.push('moveTo'),
+      lineTo: () => ops.push('lineTo'),
+      stroke: () => ops.push('stroke'),
+      fill: () => ops.push('fill'),
+      fillRect: () => ops.push('fillRect'),
+      arc: () => ops.push('arc'),
+      setLineDash: () => {},
+      fillStyle: '',
+      strokeStyle: '',
+      lineWidth: 1,
+    } as unknown as CanvasRenderingContext2D;
+
+    const { drawFuse, drawWormhole, drawMedal, drawBody } = await import(
+      '../src/app/render/shapes'
+    );
+
+    drawFuse(mockCtx, 0, 0, 48, 0, 3);
+    expect(ops).toContain('fillRect');
+
+    drawWormhole(mockCtx, 0, 0, 48, 1);
+    expect(ops).toContain('arc');
+
+    drawMedal(mockCtx, 24, 24, 12, 'gold');
+    drawMedal(mockCtx, 24, 24, 12, 'silver');
+    drawMedal(mockCtx, 24, 24, 12, 'bronze');
+    drawMedal(mockCtx, 24, 24, 12, 'none');
+
+    // Test drawBody dispatcher for all new kinds
+    drawBody(mockCtx, 'FUS', 0, 0, 48);
+    drawBody(mockCtx, 'WRM', 0, 0, 48, 0, 0, 2);
+    drawBody(mockCtx, 'PLT', 0, 0, 48, 0, 0, 1, true);
+    expect(ops.length).toBeGreaterThan(50);
+  });
 });

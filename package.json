@@ -17,6 +17,7 @@
     "gen:flavor": "tsx tools/gen-flavor.ts",
     "gen:boards": "tsx tools/gen-boards.ts",
     "audit:daily": "tsx tools/audit-daily.ts",
+    "gen:campaign": "tsx tools/gen-campaign.ts",
     "check": "npm run lint && tsc --noEmit && npm run test && npm run build && npm run size"
   },
   "devDependencies": {

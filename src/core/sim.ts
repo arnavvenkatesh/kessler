@@ -167,6 +167,40 @@ export function simulate(b: Board, p: Placement): SimResult {
   // Active emitters list for tick t
   let activeEmitters: Emitter[] = [{ x: p.x, y: p.y, kind: sparkKind }];
 
+  if (p.twin) {
+    if (p.twin.x < 0 || p.twin.x >= w || p.twin.y < 0 || p.twin.y >= h) {
+      throw new Error(`Twin placement (${p.twin.x}, ${p.twin.y}) is out of bounds [${w}x${h}]`);
+    }
+    const twinIdx = p.twin.y * w + p.twin.x;
+    if (cells[twinIdx] !== null) {
+      throw new Error(`Twin placement cell (${p.twin.x}, ${p.twin.y}) is not empty`);
+    }
+    if (p.twin.x === p.x && p.twin.y === p.y) {
+      throw new Error(`Twin placement cannot share cell with primary placement`);
+    }
+    let twinSparkKind: Kind = sparkKind;
+    if (b.spark === 'LANCE') {
+      twinSparkKind = p.twin.rot === 1 ? 'LNV' : 'LNH';
+    }
+    activeEmitters.push({ x: p.twin.x, y: p.twin.y, kind: twinSparkKind });
+    activeEmitters.sort((a, b) => (a.y * w + a.x) - (b.y * w + b.x));
+  }
+
+  // Check mutators
+  const isSolarWind = b.mutator === 'SOLAR_WIND';
+  let deadZoneMinX = -999;
+  let deadZoneMinY = -999;
+  if (b.mutator && b.mutator.startsWith('DEAD_ZONE')) {
+    if (b.mutator.includes(':')) {
+      const coords = b.mutator.split(':')[1]?.split(',') ?? [];
+      deadZoneMinX = Number.parseInt(coords[0] ?? '0', 10);
+      deadZoneMinY = Number.parseInt(coords[1] ?? '0', 10);
+    } else {
+      deadZoneMinX = ((w - 3) / 2) | 0;
+      deadZoneMinY = ((h - 3) / 2) | 0;
+    }
+  }
+
   while (activeEmitters.length > 0) {
     // 1 & 2. Remove all emitters from the grid and record detonations
     for (let eIdx = 0; eIdx < activeEmitters.length; eIdx++) {
@@ -203,9 +237,10 @@ export function simulate(b: Board, p: Placement): SimResult {
         let curX = em.x;
         let curY = em.y;
         let steps = 0;
-        const path: [number, number][] = [[curX, curY]];
+        let path: [number, number][] = [[curX, curY]];
+        const effectiveMaxSteps = isSolarWind ? 6 : maxRaySteps;
 
-        while (steps < maxRaySteps) {
+        while (steps < effectiveMaxSteps) {
           curX += dx;
           curY += dy;
           steps++;
@@ -216,6 +251,18 @@ export function simulate(b: Board, p: Placement): SimResult {
           }
 
           path.push([curX, curY]);
+
+          // DEAD_ZONE mutator: absorbs any ray entering the 3x3 patch
+          if (
+            curX >= deadZoneMinX &&
+            curX < deadZoneMinX + 3 &&
+            curY >= deadZoneMinY &&
+            curY < deadZoneMinY + 3
+          ) {
+            events.push({ t, type: 'absorb', x: curX, y: curY });
+            break;
+          }
+
           const cellIdx = curY * w + curX;
           const target = grid[cellIdx]!;
 
@@ -243,6 +290,36 @@ export function simulate(b: Board, p: Placement): SimResult {
             }
             // Diagonal rays pass through without deflecting
             continue;
+          }
+
+          // WRM: Wormhole (paired by id)
+          if (targetKind === 'WRM') {
+            events.push({ t, type: 'teleport', x: curX, y: curY });
+            const targetPair = target.cell.pair;
+            let partnerIdx = -1;
+            for (let pi = 0; pi < grid.length; pi++) {
+              if (pi !== cellIdx) {
+                const pc = grid[pi]!.cell;
+                if (pc && pc.kind === 'WRM' && (targetPair === undefined || pc.pair === targetPair)) {
+                  partnerIdx = pi;
+                  break;
+                }
+              }
+            }
+
+            if (partnerIdx !== -1) {
+              const partnerX = partnerIdx % w;
+              const partnerY = (partnerIdx / w) | 0;
+              if (path.length >= 2) {
+                events.push({ t, type: 'ray', path: [...path] });
+              }
+              curX = partnerX;
+              curY = partnerY;
+              path = [[curX, curY]];
+              continue;
+            } else {
+              break;
+            }
           }
 
           // Ignitable body: registers a hit
@@ -345,7 +422,7 @@ export function simulate(b: Board, p: Placement): SimResult {
   const lastTick = t - 1;
 
   // Compute deterministic hash from canonical summary of results and events
-  let eventSummary = `${b.rulesetVersion}|${p.x},${p.y},${p.rot ?? 0}|${score}|${destroyedCount}|${lastTick}`;
+  let eventSummary = `${b.rulesetVersion}|${p.x},${p.y},${p.rot ?? 0}${p.twin ? `+${p.twin.x},${p.twin.y},${p.twin.rot ?? 0}` : ''}|${score}|${destroyedCount}|${lastTick}`;
   for (let i = 0; i < events.length; i++) {
     const e = events[i]!;
     if (e.type === 'detonate') {

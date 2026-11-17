@@ -3,7 +3,7 @@ import { formatDateString, civilFromDays, daysFromCivil } from '../core/calendar
 import { generateDaily } from '../core/generate';
 import { simulate } from '../core/sim';
 import { solve, type SolveResult } from '../core/solver';
-import type { Board, SimEvent } from '../core/types';
+import type { Board, SimEvent, SimResult } from '../core/types';
 import { sound } from './audio/synth';
 import { InputManager } from './input/inputManager';
 import { PlaybackEngine, type PlaybackSpeed, type PlaybackStatus } from './playback/playbackEngine';
@@ -15,6 +15,13 @@ import { generateConstellationName, generateConstellationPng } from './share/con
 import { dailyStore, type DailyAttempt, type PlayerStats } from './storage/dailyStore';
 import { TUTORIAL_STAGES, type TutorialStage } from './tutorial/tutorialBoards';
 import { LayoutEngine } from './ui/layout';
+import { OrbitMapModal } from './ui/orbitMapModal';
+import { HintsModal } from './ui/hintsModal';
+import { recordLevelCompletion, type Medal } from './storage/campaignStore';
+import { drawMedal } from './render/shapes';
+import type { CampaignLevel } from '../../tools/gen-campaign';
+import type { BoundingBox } from '../core/hints';
+import campaignLevelsData from '../../data/campaign/levels.json';
 
 function getTodayDateString(): string {
   const today = new Date();
@@ -75,7 +82,9 @@ function initApp(): void {
         <span>KESSLER</span>
         <span class="brand-subtitle" id="header-subtitle">// SECTOR ${dailyData.dateStr}</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <button id="btn-orbits" class="btn" style="padding: 4px 8px; font-size: 11px; border-color: ${PALETTE.solar}; color: ${PALETTE.solar};">ORBITS</button>
+        <button id="btn-hints" class="btn" style="padding: 4px 8px; font-size: 11px; border-color: ${PALETTE.coolant}; color: ${PALETTE.coolant};">HINT</button>
         <button id="btn-manual" class="btn" style="padding: 4px 8px; font-size: 11px;">MANUAL</button>
         <button id="btn-archive" class="btn" style="padding: 4px 8px; font-size: 11px;">ARCHIVE</button>
         <button id="btn-stats" class="btn" style="padding: 4px 8px; font-size: 11px;">STATS</button>
@@ -148,8 +157,13 @@ function initApp(): void {
   const btnManual = document.getElementById('btn-manual') as HTMLButtonElement | null;
   const btnArchive = document.getElementById('btn-archive') as HTMLButtonElement | null;
   const btnStats = document.getElementById('btn-stats') as HTMLButtonElement | null;
+  const btnOrbits = document.getElementById('btn-orbits') as HTMLButtonElement | null;
+  const btnHints = document.getElementById('btn-hints') as HTMLButtonElement | null;
   const btnShowReport = document.getElementById('btn-show-report') as HTMLButtonElement | null;
   const btnReplay = document.getElementById('btn-replay') as HTMLButtonElement | null;
+
+  let currentCampaignLevel: CampaignLevel | null = null;
+  let highlightedZone: BoundingBox | null = null;
 
   const speed1xBtn = document.getElementById('speed-1x') as HTMLButtonElement | null;
   const speed2xBtn = document.getElementById('speed-2x') as HTMLButtonElement | null;
@@ -242,6 +256,7 @@ function initApp(): void {
       activeBoard,
       cursor,
       isPlaying,
+      highlightedZone,
     );
     inputManager.updateMetrics(metrics, initialBoard.w, initialBoard.h);
   }
@@ -259,6 +274,33 @@ function initApp(): void {
     const sim = simulate(initialBoard, { x, y, rot });
     const bestScore = getSolverResult().bestScore;
     const gradeRes = computeGrade(sim.score, bestScore);
+
+    if (currentCampaignLevel) {
+      const level = currentCampaignLevel;
+      let medal: Medal = 'none';
+      if (sim.score >= level.medalThresholds.gold) {
+        medal = 'gold';
+      } else if (sim.score >= level.medalThresholds.silver) {
+        medal = 'silver';
+      } else if (sim.score >= level.medalThresholds.bronze) {
+        medal = 'bronze';
+      }
+
+      recordLevelCompletion(level.id, sim.score, medal);
+
+      playback.load(initialBoard, sim);
+      playback.play();
+
+      const checkFinish = setInterval(() => {
+        if (playback.status === 'finished') {
+          clearInterval(checkFinish);
+          setTimeout(() => {
+            showCampaignResultModal(level, sim, medal);
+          }, 300);
+        }
+      }, 100);
+      return;
+    }
 
     const attempt: DailyAttempt = {
       dateStr: currentDateStr,
@@ -673,7 +715,210 @@ function initApp(): void {
     });
   }
 
+  // --- Campaign (Orbits) & Hints Implementation ---
+
+  function loadCampaignLevel(level: CampaignLevel): void {
+    currentCampaignLevel = level;
+    initialBoard = {
+      ...level.board,
+      cells: [...level.board.cells],
+    };
+    solverResult = null;
+    highlightedZone = null;
+    lockedAttempt = null;
+
+    cursor.x = Math.floor(initialBoard.w / 2);
+    cursor.y = Math.floor(initialBoard.h / 2);
+    cursor.rot = 0;
+
+    const subtitleEl = document.getElementById('header-subtitle');
+    if (subtitleEl) {
+      subtitleEl.textContent = `// ORBIT ${level.orbit} · ${level.name.toUpperCase()}`;
+    }
+    const sectorEl = document.getElementById('hud-sector');
+    if (sectorEl) {
+      sectorEl.textContent = `ORB ${level.orbit} · #${level.id}`;
+    }
+    const gridDimEl = document.getElementById('hud-grid-dim');
+    if (gridDimEl) {
+      gridDimEl.textContent = `${initialBoard.w}x${initialBoard.h} MATRIX`;
+    }
+    if (card3Label) card3Label.textContent = 'ACTIVE SPARK';
+    if (sparkEl) sparkEl.textContent = initialBoard.spark;
+    if (card4Label) card4Label.textContent = 'MISSION GOAL';
+    if (coordEl) {
+      coordEl.textContent =
+        level.goalType === 'beacons'
+          ? `IGNITE ${level.targetValue} BEACONS`
+          : `PAR: ${level.targetValue} PTS`;
+    }
+    if (attemptStatusBanner) {
+      attemptStatusBanner.textContent = `CAMPAIGN MISSION ${level.id} · GOAL: ${
+        level.goalType === 'beacons'
+          ? `IGNITE ${level.targetValue} BEACONS`
+          : `PAR: ${level.targetValue} PTS`
+      }`;
+    }
+
+    playback.load(initialBoard, {
+      score: 0,
+      destroyed: 0,
+      lastTick: 0,
+      events: [],
+      hash: '00000000',
+    });
+
+    layout.updateCanvasSize();
+    redraw();
+    closeModal();
+  }
+
+  function showCampaignResultModal(level: CampaignLevel, sim: SimResult, medal: Medal): void {
+    if (!modalContainer) return;
+    const scoreDisplay = (sim.score / 10).toFixed(1);
+    const parDisplay = (level.targetValue / 10).toFixed(1);
+
+    modalContainer.style.display = 'flex';
+    modalContainer.innerHTML = `
+      <div class="modal-backdrop">
+        <div class="modal-box" style="max-width: 500px; width: 90%;">
+          <div class="modal-header">
+            <div class="modal-title">ORBIT ${level.orbit} · LVL ${level.id} // DEBRIEF</div>
+            <button id="btn-close-modal" class="btn" style="padding: 4px 10px;">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="grade-panel" style="gap: 16px;">
+              <canvas id="campaign-medal-canvas" width="64" height="64" style="display: block;"></canvas>
+              <div>
+                <div class="grade-badge-title" style="color: ${
+                  medal === 'gold'
+                    ? PALETTE.solar
+                    : medal === 'silver'
+                    ? PALETTE.chalk
+                    : medal === 'bronze'
+                    ? PALETTE.rust
+                    : PALETTE.dust
+                };">
+                  ${medal !== 'none' ? `${medal.toUpperCase()} MEDAL AWARDED` : 'MISSION COMPLETED'}
+                </div>
+                <div style="font-size: 12px; color: var(--dust); letter-spacing: 0.08em; margin-top: 4px;">
+                  ${level.name.toUpperCase()} · ${sim.destroyed} DEBRIS CLEARED
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-cell">
+                <div class="stat-cell-label">SCORE</div>
+                <div class="stat-cell-value" style="color: ${PALETTE.solar};">${scoreDisplay}</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">PAR TARGET</div>
+                <div class="stat-cell-value">${parDisplay}</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">CHAIN DEPTH</div>
+                <div class="stat-cell-value" style="color: ${PALETTE.coolant};">${sim.lastTick} TICKS</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer" style="flex-wrap: wrap; gap: 6px;">
+            <button id="btn-campaign-replay" class="btn">REPLAY</button>
+            <button id="btn-campaign-perfect" class="btn" style="border-color: ${PALETTE.solar}; color: ${PALETTE.solar};">
+              PERFECT LINE
+            </button>
+            ${
+              level.id < 60
+                ? `<button id="btn-campaign-next" class="btn btn-primary">NEXT LEVEL &rarr;</button>`
+                : ''
+            }
+            <button id="btn-campaign-map" class="btn">ORBIT MAP</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Render large medal glyph on canvas
+    const cvs = document.getElementById('campaign-medal-canvas') as HTMLCanvasElement | null;
+    if (cvs) {
+      const mCtx = cvs.getContext('2d');
+      if (mCtx) {
+        drawMedal(mCtx, 32, 32, 22, medal);
+      }
+    }
+
+    document.getElementById('btn-close-modal')?.addEventListener('click', closeModal);
+    document.getElementById('btn-campaign-replay')?.addEventListener('click', () => {
+      closeModal();
+      loadCampaignLevel(level);
+    });
+    document.getElementById('btn-campaign-perfect')?.addEventListener('click', () => {
+      closeModal();
+      const sol = getSolverResult();
+      cursor.x = sol.best.x;
+      cursor.y = sol.best.y;
+      cursor.rot = sol.best.rot ?? 0;
+      executeRun(sol.best.x, sol.best.y, sol.best.rot ?? 0);
+    });
+    document.getElementById('btn-campaign-next')?.addEventListener('click', () => {
+      const nextLvl = (campaignLevelsData as CampaignLevel[]).find((l) => l.id === level.id + 1);
+      if (nextLvl) {
+        loadCampaignLevel(nextLvl);
+      }
+    });
+    document.getElementById('btn-campaign-map')?.addEventListener('click', () => {
+      closeModal();
+      showOrbitsModal();
+    });
+  }
+
+  function showOrbitsModal(): void {
+    if (!modalContainer) return;
+    const modal = new OrbitMapModal(
+      modalContainer,
+      {
+        onSelectLevel: (lvl) => loadCampaignLevel(lvl),
+        onClose: () => closeModal(),
+      },
+      currentCampaignLevel?.id ?? 1,
+    );
+    modal.render();
+  }
+
+  function showHintsModal(): void {
+    if (!modalContainer) return;
+    const initialTier = currentCampaignLevel
+      ? 0
+      : 0;
+    const modal = new HintsModal(
+      modalContainer,
+      initialBoard,
+      getSolverResult(),
+      {
+        onHighlightZone: (bounds) => {
+          highlightedZone = bounds;
+          redraw();
+        },
+        onClose: () => closeModal(),
+      },
+      currentCampaignLevel?.id,
+      initialTier,
+    );
+    modal.render();
+  }
+
   // --- Button Event Listeners ---
+  btnOrbits?.addEventListener('click', () => {
+    sound.initOnGesture();
+    showOrbitsModal();
+  });
+
+  btnHints?.addEventListener('click', () => {
+    sound.initOnGesture();
+    showHintsModal();
+  });
   btnManual?.addEventListener('click', () => {
     sound.initOnGesture();
     showTutorialModal();
@@ -704,6 +949,40 @@ function initApp(): void {
     sound.initOnGesture();
     const muted = sound.toggleMute();
     btnAudio.textContent = muted ? 'AUDIO: OFF' : 'AUDIO: ON';
+  });
+
+  document.querySelector('.brand-title')?.addEventListener('click', () => {
+    if (currentCampaignLevel) {
+      currentCampaignLevel = null;
+      initialBoard = { ...dailyData.board, cells: [...dailyData.board.cells] };
+      solverResult = null;
+      highlightedZone = null;
+      lockedAttempt = dailyStore.getDailyAttempt(currentDateStr);
+      cursor.x = Math.floor(initialBoard.w / 2);
+      cursor.y = Math.floor(initialBoard.h / 2);
+      cursor.rot = 0;
+      const subtitleEl = document.getElementById('header-subtitle');
+      if (subtitleEl) subtitleEl.textContent = `// SECTOR ${dailyData.dateStr}`;
+      const sectorEl = document.getElementById('hud-sector');
+      if (sectorEl) sectorEl.textContent = `#${dailyData.dayNumber}`;
+      const gridDimEl = document.getElementById('hud-grid-dim');
+      if (gridDimEl) gridDimEl.textContent = `${initialBoard.w}x${initialBoard.h} MATRIX`;
+      if (card3Label) card3Label.textContent = 'ACTIVE SPARK';
+      if (sparkEl) sparkEl.textContent = initialBoard.spark;
+      if (card4Label) card4Label.textContent = 'TARGET RETICLE';
+      if (coordEl)
+        coordEl.textContent = `[${cursor.x.toString().padStart(2, '0')}, ${cursor.y
+          .toString()
+          .padStart(2, '0')}]`;
+      if (attemptStatusBanner) {
+        attemptStatusBanner.textContent = lockedAttempt
+          ? 'OFFICIAL TRANSMISSION LOCKED · REPLAY MODE'
+          : 'OFFICIAL ATTEMPT · ONE MOVE PER DAY';
+      }
+      playback.load(initialBoard, { score: 0, destroyed: 0, lastTick: 0, events: [], hash: '' });
+      layout.updateCanvasSize();
+      redraw();
+    }
   });
 
   // Speed controls

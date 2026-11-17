@@ -42,34 +42,88 @@ export function solve(b: Board): SolveResult {
   const rotations: (0 | 1)[] = spark === 'LANCE' ? [0, 1] : [0];
   const validScores: number[] = [];
 
-  for (let y = 0; y < h; y++) {
-    for (let x = 0; x < w; x++) {
-      const idx = y * w + x;
-      if (cells[idx] !== null && cells[idx] !== undefined) {
-        continue;
+  if (b.mutator === 'TWIN_SPARK') {
+    const emptyIndices: number[] = [];
+    for (let idx = 0; idx < totalCells; idx++) {
+      if (cells[idx] === null || cells[idx] === undefined) {
+        emptyIndices.push(idx);
       }
+    }
 
-      let cellBestScore = -1;
-      let cellBestRot: 0 | 1 = 0;
-      let cellBestResult: SimResult | null = null;
+    for (let i = 0; i < emptyIndices.length; i++) {
+      const idx1 = emptyIndices[i]!;
+      const x1 = idx1 % w;
+      const y1 = (idx1 / w) | 0;
 
-      for (let r = 0; r < rotations.length; r++) {
-        const rot = rotations[r]!;
-        const res = simulate(b, { x, y, rot });
-        if (res.score > cellBestScore) {
-          cellBestScore = res.score;
-          cellBestRot = rot;
-          cellBestResult = res;
+      for (let j = i + 1; j < emptyIndices.length; j++) {
+        const idx2 = emptyIndices[j]!;
+        const x2 = idx2 % w;
+        const y2 = (idx2 / w) | 0;
+
+        for (let r1 = 0; r1 < rotations.length; r1++) {
+          const rot1 = rotations[r1]!;
+          for (let r2 = 0; r2 < rotations.length; r2++) {
+            const rot2 = rotations[r2]!;
+            const res = simulate(b, {
+              x: x1,
+              y: y1,
+              rot: rot1,
+              twin: { x: x2, y: y2, rot: rot2 },
+            });
+
+            if (res.score > scores[idx1]!) scores[idx1] = res.score;
+            if (res.score > scores[idx2]!) scores[idx2] = res.score;
+
+            if (res.score > bestScore) {
+              bestScore = res.score;
+              bestPlacement = {
+                x: x1,
+                y: y1,
+                rot: rot1,
+                twin: { x: x2, y: y2, rot: rot2 },
+              };
+              bestResult = res;
+            }
+          }
         }
       }
+    }
 
-      scores[idx] = cellBestScore;
-      validScores.push(cellBestScore);
+    for (const idx of emptyIndices) {
+      if (scores[idx]! >= 0) {
+        validScores.push(scores[idx]!);
+      }
+    }
+  } else {
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const idx = y * w + x;
+        if (cells[idx] !== null && cells[idx] !== undefined) {
+          continue;
+        }
 
-      if (cellBestScore > bestScore && cellBestResult !== null) {
-        bestScore = cellBestScore;
-        bestPlacement = { x, y, rot: cellBestRot };
-        bestResult = cellBestResult;
+        let cellBestScore = -1;
+        let cellBestRot: 0 | 1 = 0;
+        let cellBestResult: SimResult | null = null;
+
+        for (let r = 0; r < rotations.length; r++) {
+          const rot = rotations[r]!;
+          const res = simulate(b, { x, y, rot });
+          if (res.score > cellBestScore) {
+            cellBestScore = res.score;
+            cellBestRot = rot;
+            cellBestResult = res;
+          }
+        }
+
+        scores[idx] = cellBestScore;
+        validScores.push(cellBestScore);
+
+        if (cellBestScore > bestScore && cellBestResult !== null) {
+          bestScore = cellBestScore;
+          bestPlacement = { x, y, rot: cellBestRot };
+          bestResult = cellBestResult;
+        }
       }
     }
   }

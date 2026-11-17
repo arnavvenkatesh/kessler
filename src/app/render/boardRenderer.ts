@@ -86,15 +86,30 @@ export function traceFirstHitPreviews(
           ];
   }
 
+  const isSolarWind = board.mutator === 'SOLAR_WIND';
+  let deadZoneMinX = -999;
+  let deadZoneMinY = -999;
+  if (board.mutator && board.mutator.startsWith('DEAD_ZONE')) {
+    if (board.mutator.includes(':')) {
+      const coords = board.mutator.split(':')[1]?.split(',') ?? [];
+      deadZoneMinX = Number.parseInt(coords[0] ?? '0', 10);
+      deadZoneMinY = Number.parseInt(coords[1] ?? '0', 10);
+    } else {
+      deadZoneMinX = ((w - 3) / 2) | 0;
+      deadZoneMinY = ((h - 3) / 2) | 0;
+    }
+  }
+
   for (let d = 0; d < dirs.length; d++) {
     let dx = dirs[d]![0];
     let dy = dirs[d]![1];
     let curX = originX;
     let curY = originY;
-    const path: [number, number][] = [[curX, curY]];
+    let path: [number, number][] = [[curX, curY]];
     let steps = 0;
+    const maxSteps = isSolarWind ? 6 : w * h * 2;
 
-    while (steps < w * h * 2) {
+    while (steps < maxSteps) {
       curX += dx;
       curY += dy;
       steps++;
@@ -104,6 +119,18 @@ export function traceFirstHitPreviews(
       }
 
       path.push([curX, curY]);
+
+      // Dead zone mutator absorbs preview ray
+      if (
+        curX >= deadZoneMinX &&
+        curX < deadZoneMinX + 3 &&
+        curY >= deadZoneMinY &&
+        curY < deadZoneMinY + 3
+      ) {
+        hitTargets.push([curX, curY]);
+        break;
+      }
+
       const idx = curY * w + curX;
       const cell = cells[idx];
 
@@ -160,9 +187,39 @@ export function traceFirstHitPreviews(
         continue;
       }
 
+      // Wormhole teleports preview ray to partner
+      if (cell.kind === 'WRM') {
+        hitTargets.push([curX, curY]);
+        const targetPair = cell.pair;
+        let partnerIdx = -1;
+        for (let pi = 0; pi < cells.length; pi++) {
+          if (pi !== idx) {
+            const pc = cells[pi];
+            if (pc && pc.kind === 'WRM' && (targetPair === undefined || pc.pair === targetPair)) {
+              partnerIdx = pi;
+              break;
+            }
+          }
+        }
+
+        if (partnerIdx !== -1) {
+          if (path.length >= 2) {
+            paths.push([...path]);
+          }
+          curX = partnerIdx % w;
+          curY = (partnerIdx / w) | 0;
+          path = [[curX, curY]];
+          continue;
+        } else {
+          break;
+        }
+      }
+
       // Any ignitable body is hit
       hitTargets.push([curX, curY]);
-      break;
+      if (spark !== 'LANCE') {
+        break;
+      }
     }
 
     if (path.length >= 2) {
@@ -207,6 +264,7 @@ export function renderBoard(
   cursor: CursorState,
   metrics: RenderMetrics,
   isPlaybackActive: boolean = false,
+  highlightedZone?: { minX: number; minY: number; maxX: number; maxY: number } | null,
 ): void {
   // Apply screen nudge integer offset
   const offsetX = metrics.offsetX + fx.nudgeX;
@@ -224,6 +282,28 @@ export function renderBoard(
   ctx.strokeStyle = PALETTE.grid;
   ctx.lineWidth = 2;
   ctx.strokeRect(offsetX, offsetY, boardSizePx, boardSizePx);
+
+  // 1.5 Draw Dead Zone if present
+  if (board.mutator && board.mutator.startsWith('DEAD_ZONE')) {
+    let dzX = ((w - 3) / 2) | 0;
+    let dzY = ((h - 3) / 2) | 0;
+    if (board.mutator.includes(':')) {
+      const parts = board.mutator.split(':')[1]?.split(',') ?? [];
+      dzX = Number.parseInt(parts[0] ?? '0', 10);
+      dzY = Number.parseInt(parts[1] ?? '0', 10);
+    }
+    const dzPx = offsetX + dzX * cellSize;
+    const dzPy = offsetY + dzY * cellSize;
+    const dzSize = cellSize * 3;
+
+    ctx.fillStyle = PALETTE.void;
+    ctx.fillRect(dzPx, dzPy, dzSize, dzSize);
+    ctx.strokeStyle = PALETTE.rust;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2, 4]);
+    ctx.strokeRect(dzPx + 1, dzPy + 1, dzSize - 2, dzSize - 2);
+    ctx.setLineDash([]);
+  }
 
   // 2. Grid lines
   ctx.lineWidth = 1;
@@ -243,6 +323,20 @@ export function renderBoard(
     ctx.moveTo(offsetX, y);
     ctx.lineTo(offsetX + boardSizePx, y);
     ctx.stroke();
+  }
+
+  // 2.5 Highlighted hint zone in --coolant
+  if (highlightedZone) {
+    const zx = offsetX + highlightedZone.minX * cellSize;
+    const zy = offsetY + highlightedZone.minY * cellSize;
+    const zw = (highlightedZone.maxX - highlightedZone.minX + 1) * cellSize;
+    const zh = (highlightedZone.maxY - highlightedZone.minY + 1) * cellSize;
+
+    ctx.strokeStyle = PALETTE.coolant;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4, 4]);
+    ctx.strokeRect(zx, zy, zw, zh);
+    ctx.setLineDash([]);
   }
 
   // 3. Hover ray preview in --coolant (#3FD0C0) when not in playback
@@ -311,7 +405,7 @@ export function renderBoard(
       if (cell !== null && cell !== undefined) {
         const cx = offsetX + gx * cellSize;
         const cy = offsetY + gy * cellSize;
-        drawBody(ctx, cell.kind, cx, cy, cellSize, gx, gy);
+        drawBody(ctx, cell.kind, cx, cy, cellSize, gx, gy, cell.pair);
       }
     }
   }
@@ -381,9 +475,10 @@ export function drawFullFrame(
   board: Board,
   cursor: CursorState,
   isPlaybackActive: boolean = false,
+  highlightedZone?: { minX: number; minY: number; maxX: number; maxY: number } | null,
 ): RenderMetrics {
   drawBackground(ctx, width, height);
   const metrics = computeBoardMetrics(width, height, board.w, board.h);
-  renderBoard(ctx, board, cursor, metrics, isPlaybackActive);
+  renderBoard(ctx, board, cursor, metrics, isPlaybackActive, highlightedZone);
   return metrics;
 }
