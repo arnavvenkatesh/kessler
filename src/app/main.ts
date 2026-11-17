@@ -1,48 +1,87 @@
 import './index.css';
-import { formatDateString } from '../core/calendar';
+import { formatDateString, civilFromDays, daysFromCivil } from '../core/calendar';
 import { generateDaily } from '../core/generate';
 import { simulate } from '../core/sim';
-import type { Board } from '../core/types';
+import { solve, type SolveResult } from '../core/solver';
+import type { Board, SimEvent } from '../core/types';
 import { sound } from './audio/synth';
 import { InputManager } from './input/inputManager';
 import { PlaybackEngine, type PlaybackSpeed, type PlaybackStatus } from './playback/playbackEngine';
 import { drawFullFrame, type CursorState } from './render/boardRenderer';
 import { fx } from './render/fx';
 import { PALETTE } from './render/palette';
+import { computeGrade, drawGradeGlyph, generateShareText, type Grade } from './share/grade';
+import { generateConstellationName, generateConstellationPng } from './share/constellation';
+import { dailyStore, type DailyAttempt, type PlayerStats } from './storage/dailyStore';
+import { TUTORIAL_STAGES, type TutorialStage } from './tutorial/tutorialBoards';
 import { LayoutEngine } from './ui/layout';
+
+function getTodayDateString(): string {
+  const today = new Date();
+  return formatDateString(today.getFullYear(), today.getMonth() + 1, today.getDate());
+}
+
+function getCountdownToMidnight(): string {
+  const now = new Date();
+  const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+  const diffSec = Math.max(0, Math.floor((tomorrow.getTime() - now.getTime()) / 1000));
+  const h = Math.floor(diffSec / 3600).toString().padStart(2, '0');
+  const m = Math.floor((diffSec % 3600) / 60).toString().padStart(2, '0');
+  const s = (diffSec % 60).toString().padStart(2, '0');
+  return `${h}:${m}:${s}`;
+}
+
+function getWeekdayShort(dateStr: string): string {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const days = daysFromCivil(y ?? 2026, m ?? 1, d ?? 1);
+  const dayOfWeek = (days + 3) % 7; // 0 = Mon ... 6 = Sun
+  return ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][dayOfWeek] ?? 'Mon';
+}
 
 function initApp(): void {
   const root = document.getElementById('app');
   if (!root) return;
 
-  // Get current date for the daily sector (or fallback to anchor date)
-  const today = new Date();
-  const y = today.getFullYear();
-  const m = today.getMonth() + 1;
-  const d = today.getDate();
-  const dateStr = formatDateString(y, m, d);
+  // Hash route parsing for archive dates (#YYYY-MM-DD)
+  let currentDateStr = getTodayDateString();
+  const hash = window.location.hash.replace('#', '');
+  if (/^\d{4}-\d{2}-\d{2}$/.test(hash)) {
+    currentDateStr = hash;
+  }
 
-  // Generate today's board
-  const daily = generateDaily(dateStr);
-  const initialBoard: Board = {
-    ...daily.board,
-    cells: [...daily.board.cells],
+  const isOfficialDaily = currentDateStr === getTodayDateString();
+  const dailyData = generateDaily(currentDateStr);
+  let initialBoard: Board = {
+    ...dailyData.board,
+    cells: [...dailyData.board.cells],
   };
+
+  // Solver optimal line precomputed for grade benchmark
+  let solverResult: SolveResult | null = null;
+  function getSolverResult(): SolveResult {
+    if (!solverResult) {
+      solverResult = solve(initialBoard);
+    }
+    return solverResult;
+  }
+
+  // Active attempt and stats state
+  let lockedAttempt: DailyAttempt | null = isOfficialDaily ? dailyStore.getDailyAttempt(currentDateStr) : null;
+  let playerStats: PlayerStats = dailyStore.getStats();
 
   root.innerHTML = `
     <header>
       <div class="brand-title">
         <span>KESSLER</span>
-        <span class="brand-subtitle">// SECTOR ${daily.dateStr}</span>
+        <span class="brand-subtitle" id="header-subtitle">// SECTOR ${dailyData.dateStr}</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <button id="btn-audio" class="btn" aria-label="Toggle Sound">
-          ${sound.muted ? 'AUDIO: MUTED' : 'AUDIO: ON'}
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button id="btn-manual" class="btn" style="padding: 4px 8px; font-size: 11px;">MANUAL</button>
+        <button id="btn-archive" class="btn" style="padding: 4px 8px; font-size: 11px;">ARCHIVE</button>
+        <button id="btn-stats" class="btn" style="padding: 4px 8px; font-size: 11px;">STATS</button>
+        <button id="btn-audio" class="btn" style="padding: 4px 8px; font-size: 11px;">
+          ${sound.muted ? 'AUDIO: OFF' : 'AUDIO: ON'}
         </button>
-        <div class="status-badge">
-          <span class="status-pip"></span>
-          <span>SECTOR #${daily.dayNumber} ONLINE</span>
-        </div>
       </div>
     </header>
 
@@ -54,12 +93,12 @@ function initApp(): void {
       <aside class="hud-panel">
         <div class="hud-stat-box">
           <div class="hud-stat-label">SECTOR CODE</div>
-          <div class="hud-stat-value" id="hud-sector">#${daily.dayNumber}</div>
+          <div class="hud-stat-value" id="hud-sector">#${dailyData.dayNumber}</div>
         </div>
 
         <div class="hud-stat-box">
           <div class="hud-stat-label">GRID SPECIFICATION</div>
-          <div class="hud-stat-value">${initialBoard.w}x${initialBoard.h} MATRIX</div>
+          <div class="hud-stat-value" id="hud-grid-dim">${initialBoard.w}x${initialBoard.h} MATRIX</div>
         </div>
 
         <div class="hud-stat-box">
@@ -78,7 +117,10 @@ function initApp(): void {
             <button id="speed-1x" class="btn btn-active">1X</button>
             <button id="speed-2x" class="btn">2X</button>
             <button id="speed-skip" class="btn">SKIP</button>
-            <button id="btn-replay" class="btn" style="display: none; border-color: ${PALETTE.solar}; color: ${PALETTE.solar};">REPLAY</button>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <button id="btn-show-report" class="btn btn-primary" style="display: none; flex: 1;">VIEW REPORT</button>
+            <button id="btn-replay" class="btn" style="display: none; flex: 1; border-color: ${PALETTE.solar}; color: ${PALETTE.solar};">REPLAY</button>
           </div>
         </div>
 
@@ -87,28 +129,39 @@ function initApp(): void {
           <div><kbd>&larr;&uarr;&rarr;&darr;</kbd> or Mouse: Target</div>
           <div><kbd>SPACE</kbd> or Click: Detonate Spark</div>
           <div><kbd>R</kbd>: Rotate Spark orientation</div>
-          <div style="margin-top: 8px; color: ${PALETTE.coolant};">
-            &bull; Cyan rays indicate first-hit trajectory preview.
+          <div id="attempt-status-banner" style="margin-top: 8px; font-weight: 700; color: ${PALETTE.solar};">
+            ${lockedAttempt ? 'OFFICIAL TRANSMISSION LOCKED · REPLAY MODE' : 'OFFICIAL ATTEMPT · ONE MOVE PER DAY'}
           </div>
         </div>
       </aside>
     </main>
+
+    <!-- Modal Dialog Container -->
+    <div id="modal-container" style="display: none;"></div>
   `;
 
   const canvas = document.getElementById('stage-canvas') as HTMLCanvasElement | null;
   const viewport = document.getElementById('board-viewport') as HTMLElement | null;
+  const modalContainer = document.getElementById('modal-container') as HTMLElement | null;
+
   const btnAudio = document.getElementById('btn-audio') as HTMLButtonElement | null;
+  const btnManual = document.getElementById('btn-manual') as HTMLButtonElement | null;
+  const btnArchive = document.getElementById('btn-archive') as HTMLButtonElement | null;
+  const btnStats = document.getElementById('btn-stats') as HTMLButtonElement | null;
+  const btnShowReport = document.getElementById('btn-show-report') as HTMLButtonElement | null;
+  const btnReplay = document.getElementById('btn-replay') as HTMLButtonElement | null;
+
   const speed1xBtn = document.getElementById('speed-1x') as HTMLButtonElement | null;
   const speed2xBtn = document.getElementById('speed-2x') as HTMLButtonElement | null;
   const speedSkipBtn = document.getElementById('speed-skip') as HTMLButtonElement | null;
-  const replayBtn = document.getElementById('btn-replay') as HTMLButtonElement | null;
 
   const card3Label = document.getElementById('hud-card3-label');
   const card4Label = document.getElementById('hud-card4-label');
   const sparkEl = document.getElementById('hud-spark');
   const coordEl = document.getElementById('hud-coord');
+  const attemptStatusBanner = document.getElementById('attempt-status-banner');
 
-  if (!canvas || !viewport) return;
+  if (!canvas || !viewport || !modalContainer) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
@@ -138,11 +191,14 @@ function initApp(): void {
     },
     onStatusChange: (status: PlaybackStatus) => {
       if (status === 'finished') {
-        if (replayBtn) replayBtn.style.display = 'block';
+        if (btnReplay) btnReplay.style.display = 'block';
+        if (btnShowReport) btnShowReport.style.display = 'block';
       } else if (status === 'playing') {
-        if (replayBtn) replayBtn.style.display = 'none';
+        if (btnReplay) btnReplay.style.display = 'none';
+        if (btnShowReport) btnShowReport.style.display = 'none';
       } else if (status === 'idle') {
-        if (replayBtn) replayBtn.style.display = 'none';
+        if (btnReplay) btnReplay.style.display = lockedAttempt ? 'block' : 'none';
+        if (btnShowReport) btnShowReport.style.display = lockedAttempt ? 'block' : 'none';
         if (card3Label) card3Label.textContent = 'ACTIVE SPARK';
         if (sparkEl) {
           sparkEl.textContent =
@@ -160,25 +216,18 @@ function initApp(): void {
     },
   });
 
-  // Cell pixel resolver for impact particle sparks
   playback.setCellPixelResolver((gx, gy) => {
-    const metrics = computeBoardMetrics();
-    const px = metrics.offsetX + gx * metrics.cellSize + metrics.cellSize / 2;
-    const py = metrics.offsetY + gy * metrics.cellSize + metrics.cellSize / 2;
-    return [px, py];
-  });
-
-  function computeBoardMetrics() {
     const currentLayout = layout.getLayout();
-    const maxAvailableW = currentLayout.containerWidth - 32;
-    const maxAvailableH = currentLayout.containerHeight - 32;
-    const maxAvailable = Math.min(maxAvailableW, maxAvailableH);
+    const maxAvailable = Math.min(currentLayout.containerWidth - 32, currentLayout.containerHeight - 32);
     const cellSize = Math.max(24, Math.floor(maxAvailable / Math.max(initialBoard.w, initialBoard.h)));
     const boardSizePx = cellSize * initialBoard.w;
     const offsetX = Math.floor((currentLayout.containerWidth - boardSizePx) / 2);
     const offsetY = Math.floor((currentLayout.containerHeight - boardSizePx) / 2);
-    return { boardSizePx, cellSize, offsetX, offsetY };
-  }
+    return [
+      offsetX + gx * cellSize + cellSize / 2,
+      offsetY + gy * cellSize + cellSize / 2,
+    ];
+  });
 
   function redraw(): void {
     if (!ctx) return;
@@ -197,31 +246,465 @@ function initApp(): void {
     inputManager.updateMetrics(metrics, initialBoard.w, initialBoard.h);
   }
 
-  function detonateAt(x: number, y: number, rot: 0 | 1): void {
-    if (playback.status === 'playing') return;
+  // Last run results for modal display
+  let lastRunResult: {
+    attempt: DailyAttempt;
+    events: SimEvent[];
+  } | null = null;
 
-    // Verify cell is empty
-    const idx = y * initialBoard.w + x;
-    if (initialBoard.cells[idx] !== null && initialBoard.cells[idx] !== undefined) {
-      return;
-    }
-
+  function executeRun(x: number, y: number, rot: 0 | 1): void {
     sound.initOnGesture();
     sound.playSparkSet();
 
-    const result = simulate(initialBoard, { x, y, rot });
-    playback.load(initialBoard, result);
+    const sim = simulate(initialBoard, { x, y, rot });
+    const bestScore = getSolverResult().bestScore;
+    const gradeRes = computeGrade(sim.score, bestScore);
+
+    const attempt: DailyAttempt = {
+      dateStr: currentDateStr,
+      dayNumber: dailyData.dayNumber,
+      placement: { x, y, rot },
+      score: sim.score,
+      destroyed: sim.destroyed,
+      lastTick: sim.lastTick,
+      grade: gradeRes.grade,
+      percent: gradeRes.percent,
+      simHash: sim.hash,
+      timestamp: Date.now(),
+    };
+
+    // Lock official attempt if playing today's official board
+    if (isOfficialDaily && !lockedAttempt) {
+      playerStats = dailyStore.saveDailyAttempt(attempt);
+      lockedAttempt = attempt;
+      if (attemptStatusBanner) {
+        attemptStatusBanner.textContent = 'OFFICIAL TRANSMISSION LOCKED · REPLAY MODE';
+      }
+    }
+
+    lastRunResult = { attempt, events: sim.events };
+
+    playback.load(initialBoard, sim);
     playback.play();
+
+    // Hook auto-popup of results modal when this run finishes
+    const checkFinish = setInterval(() => {
+      if (playback.status === 'finished') {
+        clearInterval(checkFinish);
+        setTimeout(() => {
+          showResultModal(attempt, sim.events);
+        }, 300);
+      }
+    }, 100);
   }
 
-  // Audio mute button
-  if (btnAudio) {
-    btnAudio.addEventListener('click', () => {
-      sound.initOnGesture();
-      const muted = sound.toggleMute();
-      btnAudio.textContent = muted ? 'AUDIO: MUTED' : 'AUDIO: ON';
+  // --- Modal Screens Implementation ---
+
+  function closeModal(): void {
+    if (!modalContainer) return;
+    modalContainer.style.display = 'none';
+    modalContainer.innerHTML = '';
+  }
+
+  function showResultModal(attempt: DailyAttempt, events: SimEvent[]): void {
+    if (!modalContainer) return;
+    const constName = generateConstellationName(attempt.simHash);
+    const scoreDisplay = (attempt.score / 10).toFixed(1);
+    const weekdayStr = getWeekdayShort(attempt.dateStr);
+
+    modalContainer.style.display = 'flex';
+    modalContainer.innerHTML = `
+      <div class="modal-backdrop">
+        <div class="modal-box">
+          <div class="modal-header">
+            <div class="modal-title">MISSION DEBRIEF // #${attempt.dayNumber}</div>
+            <button id="btn-close-modal" class="btn" style="padding: 4px 10px;">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="grade-panel">
+              <canvas id="modal-glyph-canvas" width="80" height="80" style="display: block;"></canvas>
+              <div>
+                <div class="grade-badge-title" style="color: ${
+                  attempt.grade === 'PERFECT'
+                    ? PALETTE.solar
+                    : attempt.grade === 'NOVA'
+                    ? PALETTE.ember
+                    : attempt.grade === 'FLARE'
+                    ? PALETTE.coolant
+                    : PALETTE.chalk
+                };">${attempt.grade} · ${attempt.percent}%</div>
+                <div style="font-size: 12px; color: var(--dust); letter-spacing: 0.08em;">
+                  CONSTELLATION: ${constName.toUpperCase()}
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-cell">
+                <div class="stat-cell-label">SCORE</div>
+                <div class="stat-cell-value">${scoreDisplay}</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">CHAIN DEPTH</div>
+                <div class="stat-cell-value">${attempt.lastTick} TICKS</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">DESTROYED</div>
+                <div class="stat-cell-value">${attempt.destroyed} DEBRIS</div>
+              </div>
+            </div>
+
+            <div class="toast-banner" id="share-toast">TRANSMISSION COPIED TO CLIPBOARD</div>
+          </div>
+
+          <div class="modal-footer">
+            <button id="btn-perfect-line" class="btn" style="border-color: ${PALETTE.solar}; color: ${PALETTE.solar};">
+              SEE THE PERFECT LINE
+            </button>
+            <button id="btn-share-text" class="btn btn-primary">
+              SHARE TRANSMISSION
+            </button>
+            <button id="btn-download-chart" class="btn">
+              CHART PNG (1080x1350)
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Render grade glyph into modal canvas
+    const glyphCanvas = document.getElementById('modal-glyph-canvas') as HTMLCanvasElement | null;
+    if (glyphCanvas) {
+      const gCtx = glyphCanvas.getContext('2d');
+      if (gCtx) {
+        drawGradeGlyph(gCtx, attempt.grade, 40, 40, 36);
+      }
+    }
+
+    document.getElementById('btn-close-modal')?.addEventListener('click', closeModal);
+
+    // See the Perfect Line (optimal solver replay)
+    document.getElementById('btn-perfect-line')?.addEventListener('click', () => {
+      closeModal();
+      const solution = getSolverResult();
+      playback.load(initialBoard, solution.bestResult);
+      playback.play();
+    });
+
+    // Share plain text
+    document.getElementById('btn-share-text')?.addEventListener('click', () => {
+      const shareText = generateShareText({
+        dayNumber: attempt.dayNumber,
+        weekdayStr,
+        grade: attempt.grade,
+        percent: attempt.percent,
+        chainDepth: attempt.lastTick,
+        scoreDisplay,
+        constellationName: constName,
+        url: window.location.origin + window.location.pathname,
+      });
+
+      if (navigator.clipboard) {
+        void navigator.clipboard.writeText(shareText).then(() => {
+          const toast = document.getElementById('share-toast');
+          if (toast) {
+            toast.style.display = 'block';
+            setTimeout(() => {
+              toast.style.display = 'none';
+            }, 2500);
+          }
+        });
+      }
+    });
+
+    // Download 1080x1350 PNG Constellation Chart
+    document.getElementById('btn-download-chart')?.addEventListener('click', async () => {
+      const btn = document.getElementById('btn-download-chart') as HTMLButtonElement | null;
+      if (btn) btn.textContent = 'GENERATING PNG...';
+
+      const blob = await generateConstellationPng({
+        dayNumber: attempt.dayNumber,
+        dateStr: attempt.dateStr,
+        grade: attempt.grade,
+        percent: attempt.percent,
+        scoreDisplay,
+        chainDepth: attempt.lastTick,
+        destroyedCount: attempt.destroyed,
+        events,
+        boardW: initialBoard.w,
+        boardH: initialBoard.h,
+        simHash: attempt.simHash,
+      });
+
+      if (btn) btn.textContent = 'CHART PNG (1080x1350)';
+
+      if (blob) {
+        // Try Web Share API with file if supported, otherwise download
+        const file = new File([blob], `kessler-sector-${attempt.dayNumber}.png`, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          void navigator.share({
+            files: [file],
+            title: `KESSLER #${attempt.dayNumber}`,
+            text: `Constellation: ${constName}`,
+          });
+        } else {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `kessler-sector-${attempt.dayNumber}.png`;
+          a.click();
+          URL.revokeObjectURL(url);
+        }
+      }
     });
   }
+
+  // --- Stats Modal ---
+  function showStatsModal(): void {
+    if (!modalContainer) return;
+    playerStats = dailyStore.getStats();
+    modalContainer.style.display = 'flex';
+    modalContainer.innerHTML = `
+      <div class="modal-backdrop">
+        <div class="modal-box">
+          <div class="modal-header">
+            <div class="modal-title">PILOT TELEMETRY // STATS</div>
+            <button id="btn-close-modal" class="btn" style="padding: 4px 10px;">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="stat-cell">
+                <div class="stat-cell-label">CURRENT STREAK</div>
+                <div class="stat-cell-value" style="color: ${PALETTE.ember};">${playerStats.currentStreak} DAYS</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">MAX STREAK</div>
+                <div class="stat-cell-value">${playerStats.maxStreak} DAYS</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">MISSIONS PLAYED</div>
+                <div class="stat-cell-value">${playerStats.totalPlayed}</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-cell-label">BEST CHAIN</div>
+                <div class="stat-cell-value" style="color: ${PALETTE.coolant};">${playerStats.bestChain} TICKS</div>
+              </div>
+            </div>
+
+            <div style="font-size: 11px; color: var(--dust); letter-spacing: 0.08em; margin-top: 10px;">
+              GRADE CLASSIFICATION DISTRIBUTION
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              ${(['PERFECT', 'NOVA', 'FLARE', 'SPARK', 'DUD'] as Grade[])
+                .map((g) => {
+                  const count = playerStats.grades[g] ?? 0;
+                  return `
+                  <div style="display: flex; align-items: center; justify-content: space-between; background: var(--void); padding: 6px 12px; border: 1px solid var(--grid);">
+                    <span style="font-weight: 700; color: ${
+                      g === 'PERFECT' ? PALETTE.solar : g === 'NOVA' ? PALETTE.ember : PALETTE.chalk
+                    };">${g}</span>
+                    <span style="font-family: var(--font-display); font-size: 18px; font-weight: 700;">${count}</span>
+                  </div>
+                `;
+                })
+                .join('')}
+            </div>
+
+            <div style="background: var(--void); padding: 10px; border: 1px solid var(--grid); text-align: center; color: var(--coolant); font-size: 12px;">
+              NEXT SECTOR UNLOCKS IN: <span id="modal-countdown" style="font-weight: 700;">${getCountdownToMidnight()}</span>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button id="btn-close-modal-bottom" class="btn btn-primary">CLOSE</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('btn-close-modal')?.addEventListener('click', closeModal);
+    document.getElementById('btn-close-modal-bottom')?.addEventListener('click', closeModal);
+  }
+
+  // --- Interactive Tutorial Modal & Runner ---
+  function showTutorialModal(): void {
+    if (!modalContainer) return;
+    modalContainer.style.display = 'flex';
+    modalContainer.innerHTML = `
+      <div class="modal-backdrop">
+        <div class="modal-box">
+          <div class="modal-header">
+            <div class="modal-title">FLIGHT MANUAL // TUTORIAL</div>
+            <button id="btn-close-modal" class="btn" style="padding: 4px 10px;">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div style="font-size: 13px; color: var(--dust); line-height: 1.5;">
+              Three hands-on flight stages introduce chain reaction mechanics, mirror deflections, and gravitational hazards.
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              ${TUTORIAL_STAGES.map(
+                (stage) => `
+                <div style="background: var(--void); border: 1px solid var(--grid); padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="color: ${PALETTE.solar}; font-weight: 700; font-size: 13px;">${stage.title}</div>
+                    <div style="color: var(--dust); font-size: 11px; margin-top: 2px;">${stage.subtitle}</div>
+                  </div>
+                  <button class="btn btn-start-stage" data-stage="${stage.id}" style="padding: 6px 12px;">ENGAGE</button>
+                </div>
+              `,
+              ).join('')}
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button id="btn-close-modal-bottom" class="btn">RETURN TO MISSION</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('btn-close-modal')?.addEventListener('click', closeModal);
+    document.getElementById('btn-close-modal-bottom')?.addEventListener('click', closeModal);
+
+    document.querySelectorAll('.btn-start-stage').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const id = Number((e.currentTarget as HTMLElement).getAttribute('data-stage'));
+        const stage = TUTORIAL_STAGES.find((s) => s.id === id);
+        if (stage) {
+          loadTutorialStage(stage);
+        }
+      });
+    });
+  }
+
+  function loadTutorialStage(stage: TutorialStage): void {
+    closeModal();
+    initialBoard = {
+      ...stage.board,
+      cells: [...stage.board.cells],
+    };
+    solverResult = null;
+    cursor.x = 0;
+    cursor.y = 0;
+    cursor.rot = 0;
+
+    const subEl = document.getElementById('header-subtitle');
+    if (subEl) subEl.textContent = `// ${stage.title}`;
+    const dimEl = document.getElementById('hud-grid-dim');
+    if (dimEl) dimEl.textContent = `${initialBoard.w}x${initialBoard.h} MATRIX`;
+    const sectorEl = document.getElementById('hud-sector');
+    if (sectorEl) sectorEl.textContent = `TUTORIAL`;
+    const banner = document.getElementById('attempt-status-banner');
+    if (banner) {
+      banner.textContent = `${stage.brief} ${stage.hint}`;
+    }
+
+    playback.load(initialBoard, { score: 0, destroyed: 0, lastTick: 0, events: [], hash: '' });
+    layout.updateCanvasSize();
+    redraw();
+  }
+
+  // --- Archive Modal ---
+  function showArchiveModal(): void {
+    if (!modalContainer) return;
+    const todayDays = daysFromCivil(
+      new Date().getFullYear(),
+      new Date().getMonth() + 1,
+      new Date().getDate(),
+    );
+
+    const pastDays: { dateStr: string; label: string }[] = [];
+    for (let i = 1; i <= 14; i++) {
+      const [y, m, d] = civilFromDays(todayDays - i);
+      const ds = formatDateString(y, m, d);
+      pastDays.push({ dateStr: ds, label: `SECTOR ${ds}` });
+    }
+
+    modalContainer.style.display = 'flex';
+    modalContainer.innerHTML = `
+      <div class="modal-backdrop">
+        <div class="modal-box">
+          <div class="modal-header">
+            <div class="modal-title">MISSION ARCHIVE // HISTORICAL SECTORS</div>
+            <button id="btn-close-modal" class="btn" style="padding: 4px 10px;">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div style="font-size: 12px; color: var(--dust); margin-bottom: 8px;">
+              Select a past sector to practice or review. Archive runs are unranked.
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; max-height: 300px; overflow-y: auto;">
+              ${pastDays
+                .map(
+                  (p) => `
+                <button class="btn btn-archive-date" data-date="${p.dateStr}" style="padding: 8px; text-align: left; font-size: 11px;">
+                  ${p.label}
+                </button>
+              `,
+                )
+                .join('')}
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button id="btn-close-modal-bottom" class="btn">CLOSE</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('btn-close-modal')?.addEventListener('click', closeModal);
+    document.getElementById('btn-close-modal-bottom')?.addEventListener('click', closeModal);
+
+    document.querySelectorAll('.btn-archive-date').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const ds = (e.currentTarget as HTMLElement).getAttribute('data-date');
+        if (ds) {
+          window.location.hash = ds;
+          window.location.reload();
+        }
+      });
+    });
+  }
+
+  // --- Button Event Listeners ---
+  btnManual?.addEventListener('click', () => {
+    sound.initOnGesture();
+    showTutorialModal();
+  });
+
+  btnArchive?.addEventListener('click', () => {
+    sound.initOnGesture();
+    showArchiveModal();
+  });
+
+  btnStats?.addEventListener('click', () => {
+    sound.initOnGesture();
+    showStatsModal();
+  });
+
+  btnShowReport?.addEventListener('click', () => {
+    sound.initOnGesture();
+    if (lockedAttempt && lastRunResult) {
+      showResultModal(lockedAttempt, lastRunResult.events);
+    } else if (lockedAttempt) {
+      // Re-simulate to get events for modal
+      const sim = simulate(initialBoard, lockedAttempt.placement);
+      showResultModal(lockedAttempt, sim.events);
+    }
+  });
+
+  btnAudio?.addEventListener('click', () => {
+    sound.initOnGesture();
+    const muted = sound.toggleMute();
+    btnAudio.textContent = muted ? 'AUDIO: OFF' : 'AUDIO: ON';
+  });
 
   // Speed controls
   function updateSpeedButtons(speed: PlaybackSpeed): void {
@@ -246,9 +729,13 @@ function initApp(): void {
     updateSpeedButtons('skip');
   });
 
-  replayBtn?.addEventListener('click', () => {
+  btnReplay?.addEventListener('click', () => {
     sound.initOnGesture();
-    playback.restart();
+    if (lockedAttempt) {
+      executeRun(lockedAttempt.placement.x, lockedAttempt.placement.y, lockedAttempt.placement.rot ?? 0);
+    } else {
+      playback.restart();
+    }
   });
 
   const inputManager = new InputManager(canvas, {
@@ -263,7 +750,12 @@ function initApp(): void {
       }
     },
     onPlace: (x, y, rot) => {
-      detonateAt(x, y, rot);
+      if (playback.status === 'playing') return;
+      const idx = y * initialBoard.w + x;
+      if (initialBoard.cells[idx] !== null && initialBoard.cells[idx] !== undefined) {
+        return; // Non-empty cell cannot receive Spark
+      }
+      executeRun(x, y, rot);
     },
     onRotate: (rot) => {
       if (playback.status === 'playing') return;
@@ -277,36 +769,28 @@ function initApp(): void {
       }
     },
     onUndo: () => {
-      if (playback.status === 'finished') {
+      if (!lockedAttempt && playback.status === 'finished') {
         playback.load(initialBoard, { score: 0, destroyed: 0, lastTick: 0, events: [], hash: '' });
       }
     },
   });
 
-  // Global user interaction listener to resume audio context
-  window.addEventListener(
-    'pointerdown',
-    () => {
-      sound.initOnGesture();
-    },
-    { once: true },
-  );
-
-  window.addEventListener(
-    'keydown',
-    () => {
-      sound.initOnGesture();
-    },
-    { once: true },
-  );
+  // Global gesture listeners
+  window.addEventListener('pointerdown', () => sound.initOnGesture(), { once: true });
+  window.addEventListener('keydown', () => sound.initOnGesture(), { once: true });
 
   layout.onResize(() => {
     redraw();
   });
 
-  // Initial layout configuration
   layout.updateCanvasSize();
   redraw();
+
+  // If already locked today, prepare replay
+  if (lockedAttempt) {
+    if (btnShowReport) btnShowReport.style.display = 'block';
+    if (btnReplay) btnReplay.style.display = 'block';
+  }
 
   // Animation frame loop
   let lastTimestamp = performance.now();

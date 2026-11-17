@@ -22,6 +22,8 @@ Thumbs.db
 # Test coverage & reports
 coverage/
 .vitest/
+test-results/
+playwright-report/
 
 # Vite & IDE
 .vite/

@@ -309,3 +309,126 @@ main {
     display: none;
   }
 }
+
+/* Modal Dialog & Overlay - Art Bible strict: no blur, no rounded pills, hard shadows */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(11, 15, 28, 0.88); /* Plain dark void backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-box {
+  background-color: var(--hull);
+  border: 2px solid var(--grid);
+  box-shadow: 4px 4px 0 var(--void);
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--grid);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--chalk);
+  letter-spacing: 0.06em;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.modal-footer .btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* Grade display */
+.grade-panel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--void);
+  border: 2px solid var(--grid);
+  padding: 16px;
+}
+
+.grade-badge-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stat-cell {
+  background-color: var(--void);
+  border: 1px solid var(--grid);
+  padding: 8px;
+  text-align: center;
+}
+
+.stat-cell-label {
+  font-size: 10px;
+  color: var(--dust);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stat-cell-value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--solar);
+  margin-top: 2px;
+}
+
+.toast-banner {
+  background-color: var(--coolant);
+  color: var(--void);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px 12px;
+  text-align: center;
+  letter-spacing: 0.08em;
+  display: none;
+}
+
