@@ -1,0 +1,170 @@
+{
+  "board": {
+    "w": 9,
+    "h": 9,
+    "cells": [
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      null,
+      {
+        "kind": "MRF"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "LNH"
+      },
+      {
+        "kind": "CIN"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "LNV"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "MRB"
+      },
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      {
+        "kind": "CIN"
+      },
+      null,
+      null,
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "MRF"
+      },
+      {
+        "kind": "LNV"
+      },
+      {
+        "kind": "MRF"
+      },
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      {
+        "kind": "SHD"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "BCN"
+      },
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "kind": "SNG"
+      },
+      {
+        "kind": "BCN"
+      }
+    ],
+    "spark": "CROSS",
+    "rulesetVersion": 1
+  },
+  "stats": {
+    "chainDepth": 7,
+    "destroyedCount": 19,
+    "destroyedPercent": 82,
+    "topScorePlacementsCount": 3,
+    "medianScore": 2770,
+    "decoyCount": 4,
+    "isCleanSweep": false
+  },
+  "attempts": 31,
+  "degraded": false,
+  "dayNumber": 351,
+  "dateStr": "2026-12-17"
+}

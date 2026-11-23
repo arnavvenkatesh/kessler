@@ -1,8 +1,8 @@
 {
-  "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
-  "name": "Long March 2D | Unknown Payload",
+  "id": "7bdc412b-c965-4517-a131-f57a01189803",
+  "name": "Ariane 64 Block 2 | Amazon Leo (LE-04)",
   "status": "Go for Launch",
-  "net": "2026-11-18T22:50:00Z",
-  "provider": "China Aerospace Science and Technology Corporation",
-  "pad": "Launch Complex 9"
+  "net": "2026-11-23T11:09:00Z",
+  "provider": "Arianespace",
+  "pad": "Ariane Launch Area 4"
 }
